@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -158,9 +159,9 @@ button:active {
 }
 
 
-/* =========================
-   SCENE 1
-========================= */
+/* =====================================================
+   SCENE 1 — OPENING
+===================================================== */
 
 .transmission-box {
 
@@ -180,59 +181,59 @@ button:active {
   z-index: 3;
 }
 
-.signal-icon {
 
-  font-size: 45px;
+/* Alien emoji */
 
-  margin-bottom: 20px;
+.alien-emoji {
 
-  animation: pulse 2s infinite;
+  font-size: 60px;
+
+  margin-bottom: 25px;
+
+  animation:
+    floatAlien 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes floatAlien {
 
   0%,
   100% {
-    opacity: 0.4;
-    transform: scale(1);
+    transform: translateY(0);
   }
 
   50% {
-    opacity: 1;
-    transform: scale(1.15);
+    transform: translateY(-10px);
   }
 
 }
 
-.small-text {
 
-  font-size: 11px;
-
-  letter-spacing: 4px;
-
-  opacity: 0.6;
-}
+/* Opening text */
 
 .transmission-box h1 {
 
-  font-size: clamp(24px, 5vw, 42px);
+  font-size: clamp(24px, 5vw, 40px);
 
-  margin: 25px 0 15px;
+  margin: 10px 0 35px;
+
+  font-weight: normal;
 }
 
-.transmission-box p:not(.small-text) {
+.transmission-box p {
+
+  font-size: 15px;
 
   line-height: 1.8;
 
-  opacity: 0.7;
-
   margin-bottom: 35px;
+
+  opacity: 0.75;
 }
 
 
-/* =========================
-   SCENE 2
-========================= */
+/* =====================================================
+   SCENE 2 — BIRTHDAY
+===================================================== */
 
 .birthday-container {
 
@@ -248,81 +249,9 @@ button:active {
 
   align-items: center;
 
-  padding: 30px 10px;
+  padding: 30px 10px 80px;
 
   scrollbar-width: thin;
-}
-
-
-/* =========================
-   BIRTHDAY CARD
-========================= */
-
-.card {
-
-  width: min(380px, 85vw);
-
-  min-height: 460px;
-
-  padding: 35px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #f6eadb,
-      #dfc8b2
-    );
-
-  color: #211a19;
-
-  border-radius: 6px;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.45);
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  transform: rotate(-1deg);
-}
-
-
-/* =========================
-   CARD TITLE
-========================= */
-
-.card-top {
-
-  width: 100%;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  font-family: Georgia, serif;
-}
-
-.card-top h1 {
-
-  font-size: 38px;
-
-  line-height: 0.9;
-
-  text-align: center;
-
-  margin: 0;
-}
-
-.card-top span {
-
-  font-size: 22px;
 }
 
 
@@ -332,47 +261,18 @@ button:active {
 
 .meme-image {
 
-  width: min(280px, 75vw);
+  width: min(500px, 90vw);
 
-  max-height: 230px;
+  max-height: 70vh;
 
   object-fit: contain;
 
-  margin: 20px 0;
+  margin: 20px 0 70px;
 
   border-radius: 4px;
-}
 
-
-/* =========================
-   CARD NAME
-========================= */
-
-.card-name {
-
-  font-size: 23px;
-
-  letter-spacing: 4px;
-
-  margin: 0;
-
-  font-weight: bold;
-}
-
-
-/* =========================
-   CARD BOTTOM
-========================= */
-
-.card-bottom {
-
-  width: 100%;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  font-size: 15px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.4);
 }
 
 
@@ -384,16 +284,22 @@ button:active {
 
   width: min(650px, 90vw);
 
-  margin-top: 45px;
-
   padding-bottom: 50px;
+
+  text-align: left;
 }
 
 .message h2 {
 
-  font-size: clamp(25px, 5vw, 36px);
+  font-family: Arial, sans-serif;
 
-  margin-bottom: 30px;
+  font-size: clamp(28px, 6vw, 42px);
+
+  margin-bottom: 35px;
+
+  text-align: center;
+
+  color: white;
 }
 
 .message p {
@@ -402,9 +308,9 @@ button:active {
 
   font-size: 17px;
 
-  line-height: 1.8;
+  line-height: 1.9;
 
-  margin: 20px 0;
+  margin: 25px 0;
 
   color: rgba(255,255,255,0.88);
 }
@@ -417,18 +323,22 @@ button:active {
 
   font-size: 15px;
 
-  margin: 25px 0;
+  margin: 30px 0;
+
+  text-align: center;
 }
 
-.message button {
+.message .button-container {
 
-  margin-top: 15px;
+  text-align: center;
+
+  margin-top: 45px;
 }
 
 
-/* =========================
-   SCENE 3
-========================= */
+/* =====================================================
+   SCENE 3 — CUTE FOOTBALL ALIEN
+===================================================== */
 
 .alien-container {
 
@@ -452,16 +362,69 @@ button:active {
 
 .alien {
 
-  width: 190px;
+  width: 250px;
 
-  height: 210px;
+  height: 300px;
 
   position: relative;
 
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 
   animation:
     alienFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   ANTENNAS
+========================= */
+
+.antenna {
+
+  position: absolute;
+
+  width: 5px;
+  height: 32px;
+
+  background: #4ca84c;
+
+  top: -20px;
+
+  z-index: 1;
+
+  border-radius: 5px;
+}
+
+.antenna-left {
+
+  left: 91px;
+
+  transform: rotate(-15deg);
+}
+
+.antenna-right {
+
+  right: 91px;
+
+  transform: rotate(15deg);
+}
+
+.antenna span {
+
+  position: absolute;
+
+  width: 13px;
+  height: 13px;
+
+  background: #79d96b;
+
+  border: 2px solid #438f42;
+
+  border-radius: 50%;
+
+  top: -8px;
+
+  left: -4px;
 }
 
 
@@ -475,21 +438,64 @@ button:active {
 
   height: 125px;
 
-  background: #71d36b;
+  background: #79d96b;
 
   border-radius:
-    50% 50% 45% 45%;
+    50% 50% 48% 48%;
 
   position: absolute;
 
-  left: 22px;
+  left: 52px;
 
-  top: 25px;
+  top: 5px;
 
-  border: 3px solid #3d8f43;
+  border: 3px solid #438f42;
 
   box-shadow:
-    0 10px 30px rgba(0,0,0,0.4);
+    0 8px 25px rgba(0,0,0,0.35);
+
+  z-index: 5;
+}
+
+
+/* =========================
+   EARS
+========================= */
+
+.alien-face::before,
+.alien-face::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 25px;
+
+  height: 35px;
+
+  background: #79d96b;
+
+  border: 3px solid #438f42;
+
+  top: 50px;
+
+  z-index: -1;
+}
+
+.alien-face::before {
+
+  left: -20px;
+
+  border-radius:
+    60% 20% 20% 60%;
+}
+
+.alien-face::after {
+
+  right: -20px;
+
+  border-radius:
+    20% 60% 60% 20%;
 }
 
 
@@ -501,7 +507,7 @@ button:active {
 
   position: absolute;
 
-  top: 40px;
+  top: 37px;
 
   left: 25px;
 
@@ -514,107 +520,323 @@ button:active {
 
 .alien-eyes span {
 
-  width: 32px;
+  width: 38px;
 
-  height: 40px;
+  height: 45px;
 
-  background: #62b8ff;
+  background: #65bfff;
 
   border-radius: 50%;
 
-  border: 3px solid #28659c;
+  border: 3px solid #317caf;
 
-  display: flex;
+  position: relative;
 
-  justify-content: center;
+  box-shadow:
+    inset 0 0 8px rgba(255,255,255,0.5);
+}
 
-  align-items: center;
 
-  color: #17456c;
+/* EYE HIGHLIGHTS */
 
-  font-size: 10px;
+.alien-eyes span::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 9px;
+
+  height: 9px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  top: 7px;
+
+  left: 8px;
 }
 
 
 /* =========================
-   MOUTH
+   SMILE
 ========================= */
 
 .alien-mouth {
 
   position: absolute;
 
-  bottom: 25px;
+  width: 30px;
 
-  left: 62px;
+  height: 15px;
 
-  font-size: 25px;
+  border-bottom:
+    3px solid #36783a;
 
-  color: #267039;
+  border-radius:
+    0 0 50% 50%;
+
+  bottom: 20px;
+
+  left: 54px;
 }
 
 
 /* =========================
-   BLONDE HAIR
+   ALIEN BODY
 ========================= */
 
-.alien-hair {
+.alien-body {
 
   position: absolute;
 
-  top: 2px;
+  width: 150px;
 
-  left: 22px;
+  height: 170px;
 
-  z-index: 5;
+  left: 50px;
 
-  color: #f5d76e;
-
-  font-size: 30px;
-
-  letter-spacing: -7px;
-
-  transform: rotate(-8deg);
+  top: 112px;
 }
 
 
 /* =========================
-   PINK SHIRT
+   PINK POLO
 ========================= */
 
 .alien-shirt {
 
   position: absolute;
 
-  bottom: 0;
+  width: 120px;
 
-  left: 48px;
+  height: 82px;
 
-  width: 95px;
+  left: 15px;
 
-  height: 70px;
+  top: 0;
 
-  background: #ff7fa8;
+  background: #f47fa5;
+
+  border: 3px solid #c8567d;
 
   border-radius:
-    45px 45px 15px 15px;
-
-  border: 3px solid #c84f7c;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  font-size: 30px;
+    25px 25px 12px 12px;
 
   z-index: 3;
 }
 
 
+/* COLLAR */
+
+.collar {
+
+  position: absolute;
+
+  width: 42px;
+
+  height: 28px;
+
+  left: 36px;
+
+  top: -1px;
+
+  background: #ffd2df;
+
+  clip-path:
+    polygon(
+      0 0,
+      50% 100%,
+      100% 0
+    );
+}
+
+
+/* BUTTONS */
+
+.buttons {
+
+  position: absolute;
+
+  left: 57px;
+
+  top: 27px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.buttons span {
+
+  width: 6px;
+
+  height: 6px;
+
+  background: #a94468;
+
+  border-radius: 50%;
+}
+
+
 /* =========================
-   SOCCER BALL
+   ARMS
+========================= */
+
+.alien-arm {
+
+  position: absolute;
+
+  width: 22px;
+
+  height: 65px;
+
+  background: #79d96b;
+
+  border: 3px solid #438f42;
+
+  border-radius: 20px;
+
+  top: 8px;
+
+  z-index: 2;
+}
+
+.arm-left {
+
+  left: -4px;
+
+  transform: rotate(25deg);
+}
+
+.arm-right {
+
+  right: -4px;
+
+  transform: rotate(-25deg);
+}
+
+
+/* =========================
+   BLACK PANTS
+========================= */
+
+.alien-pants {
+
+  position: absolute;
+
+  width: 120px;
+
+  height: 58px;
+
+  left: 15px;
+
+  top: 73px;
+
+  background: #17171d;
+
+  border-radius:
+    5px 5px 15px 15px;
+
+  z-index: 2;
+}
+
+
+/* =========================
+   LEGS
+========================= */
+
+.alien-leg {
+
+  position: absolute;
+
+  width: 28px;
+
+  height: 70px;
+
+  background: #17171d;
+
+  top: 112px;
+
+  z-index: 1;
+
+  border-radius:
+    0 0 8px 8px;
+}
+
+
+/* STANDING LEG */
+
+.leg-left {
+
+  left: 38px;
+
+  transform: rotate(5deg);
+}
+
+
+/* KICKING LEG */
+
+.leg-right {
+
+  right: 28px;
+
+  transform: rotate(-48deg);
+
+  transform-origin:
+    top center;
+}
+
+
+/* =========================
+   SOCKS
+========================= */
+
+.sock {
+
+  position: absolute;
+
+  width: 29px;
+
+  height: 34px;
+
+  bottom: -27px;
+
+  left: -1px;
+
+  background: white;
+
+  border-radius:
+    3px 3px 9px 9px;
+
+  border:
+    2px solid #d9d9d9;
+
+  overflow: hidden;
+}
+
+
+/* GREEN STRIPES */
+
+.sock span {
+
+  display: block;
+
+  width: 100%;
+
+  height: 5px;
+
+  background: #64b85b;
+
+  margin-top: 5px;
+}
+
+
+/* =========================
+   FOOTBALL
 ========================= */
 
 .soccer-ball {
@@ -623,11 +845,11 @@ button:active {
 
   right: -5px;
 
-  bottom: 15px;
+  bottom: 43px;
 
-  font-size: 45px;
+  font-size: 48px;
 
-  z-index: 6;
+  z-index: 8;
 
   animation:
     soccerKick 1.5s ease-in-out infinite;
@@ -636,23 +858,34 @@ button:active {
 @keyframes soccerKick {
 
   0% {
-    transform: rotate(0deg) translateX(0);
+
+    transform:
+      translate(0, 0)
+      rotate(0deg);
   }
 
-  50% {
-    transform: rotate(25deg) translateX(10px);
+  45% {
+
+    transform:
+      translate(15px, -13px)
+      rotate(20deg);
+  }
+
+  70% {
+
+    transform:
+      translate(25px, -5px)
+      rotate(35deg);
   }
 
   100% {
-    transform: rotate(0deg) translateX(0);
+
+    transform:
+      translate(0, 0)
+      rotate(0deg);
   }
 
 }
-
-
-/* =========================
-   ALIEN FLOAT
-========================= */
 
 @keyframes alienFloat {
 
@@ -661,119 +894,122 @@ button:active {
 
     transform:
       translateY(0)
-      rotate(-2deg);
-
+      rotate(-1deg);
   }
 
   50% {
 
     transform:
-      translateY(-12px)
-      rotate(2deg);
+      translateY(-8px)
+      rotate(1deg);
+  }
+
+}
+
+
+/* =====================================================
+   ERROR POPUP
+===================================================== */
+
+.error-popup {
+
+  position: fixed;
+
+  left: 50%;
+
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%)
+    scale(0.8);
+
+  width: min(420px, 85vw);
+
+  padding: 30px;
+
+  background: #090909;
+
+  border: 2px solid #ff3b3b;
+
+  box-shadow:
+    0 0 40px rgba(255,0,0,0.4);
+
+  z-index: 100;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* Popup appears */
+
+.error-popup.show {
+
+  animation:
+    popupAppear 0.5s ease forwards;
+
+  pointer-events: auto;
+}
+
+@keyframes popupAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.8);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1);
 
   }
 
 }
 
 
-/* =========================
-   SECRET BOX
-========================= */
+/* Popup title */
 
-.secret-box {
+.error-title {
 
-  width: 100%;
+  color: #ff4d4d;
 
-  padding: 30px;
-
-  border:
-    1px solid #48ff91;
-
-  background:
-    rgba(0,20,10,0.8);
-
-  box-shadow:
-    0 0 30px
-    rgba(72,255,145,0.15);
-
-  font-family:
-    "Courier New", monospace;
-
-  text-align: left;
-}
-
-.secret-title {
-
-  color: #48ff91;
+  font-size: 20px;
 
   font-weight: bold;
 
-  font-size: 15px;
+  letter-spacing: 3px;
 
-  letter-spacing: 2px;
-
-  margin-bottom: 25px;
-
-  text-align: center;
+  margin-bottom: 20px;
 }
 
-.scan-line {
-
-  width: 100%;
-
-  height: 1px;
-
-  background: #48ff91;
-
-  margin-bottom: 25px;
-
-  opacity: 0.5;
-}
-
-.secret-box p {
+.error-popup p {
 
   font-size: 13px;
 
   line-height: 1.7;
 
-  margin: 10px 0;
+  color: #ddd;
 
-  color: #b8ffc9;
+  margin-bottom: 25px;
 }
-
-.secret-box p span {
-
-  color: #48ff91;
-}
-
-.secret-box .danger {
-
-  color: #ff5c5c;
-}
-
-.restart {
-
-  margin-top: 25px !important;
-
-  text-align: center;
-
-  color: white !important;
-}
-
-
-/* =========================
-   ERROR BUTTON
-========================= */
 
 .error-button {
-
-  display: block;
-
-  margin: 25px auto 0;
 
   border-color: #ff4d4d;
 
   color: #ff5c5c;
+
+  width: 100%;
 }
 
 .error-button:hover {
@@ -784,9 +1020,9 @@ button:active {
 }
 
 
-/* =========================
-   SCENE 4
-========================= */
+/* =====================================================
+   SCENE 4 — EXPLOSION
+===================================================== */
 
 .explosion {
 
@@ -877,9 +1113,9 @@ button:active {
 }
 
 
-/* =========================
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -887,16 +1123,9 @@ button:active {
     padding: 15px;
   }
 
-  .card {
-    min-height: 400px;
-  }
-
-  .card-top h1 {
-    font-size: 30px;
-  }
-
   .meme-image {
-    max-height: 180px;
+    width: 90vw;
+    max-height: 60vh;
   }
 
   .message p {
@@ -905,14 +1134,6 @@ button:active {
 
   .alien {
     transform: scale(0.85);
-  }
-
-  .secret-box {
-    padding: 20px;
-  }
-
-  .secret-box p {
-    font-size: 11px;
   }
 
 }
@@ -927,9 +1148,9 @@ button:active {
 <div class="space">
 
 
-<!-- =================================
-     SCENE 1
-================================= -->
+<!-- =================================================
+     SCENE 1 — OPENING
+================================================= -->
 
 <section id="scene1" class="scene active">
 
@@ -937,21 +1158,16 @@ button:active {
 
   <div class="transmission-box">
 
-    <div class="signal-icon">
-      ◉
+    <div class="alien-emoji">
+      👽
     </div>
-
-    <p class="small-text">
-      INCOMING TRANSMISSION
-    </p>
 
     <h1>
       A transmission has arrived...
     </h1>
 
     <p>
-      From somewhere<br>
-      in the universe.
+      From somewhere in the universe.
     </p>
 
     <button id="openBtn">
@@ -963,9 +1179,9 @@ button:active {
 </section>
 
 
-<!-- =================================
-     SCENE 2
-================================= -->
+<!-- =================================================
+     SCENE 2 — BIRTHDAY
+================================================= -->
 
 <section id="scene2" class="scene">
 
@@ -974,50 +1190,16 @@ button:active {
   <div class="birthday-container">
 
 
-    <!-- BIRTHDAY CARD -->
+    <!-- MEME ONLY -->
 
-    <div class="card">
-
-      <div class="card-top">
-
-        <span>✦</span>
-
-        <h1>
-          HAPPY<br>
-          BIRTHDAY
-        </h1>
-
-        <span>✦</span>
-
-      </div>
+    <img
+      class="meme-image"
+      src="https://www.grouptogether.com/assets/images/ronburgandymeme.avif?v=1727814538"
+      alt="Birthday meme"
+    >
 
 
-      <!-- YOUR MEME -->
-
-      <img
-        class="meme-image"
-        src="https://www.grouptogether.com/assets/images/ronburgandymeme.avif?v=1727814538"
-        alt="Birthday meme"
-      >
-
-
-      <p class="card-name">
-        HOT STUFF
-      </p>
-
-
-      <div class="card-bottom">
-
-        <span>♡</span>
-        <span>♡</span>
-        <span>♡</span>
-
-      </div>
-
-    </div>
-
-
-    <!-- BIRTHDAY MESSAGE -->
+    <!-- MESSAGE -->
 
     <div class="message">
 
@@ -1025,22 +1207,27 @@ button:active {
         Happy birthday hot stuff
       </h2>
 
+
       <p>
         Congratulations on completing another solar cycle.
       </p>
+
 
       <p>
         It's crazy how there are 8 billion people in this planet,
         and our paths crossed.
       </p>
 
+
       <p>
         I'm glad it did.
       </p>
 
+
       <p>
         I hope this year brings you plenty of good things..
       </p>
+
 
       <p class="list">
         good music<br>
@@ -1049,21 +1236,24 @@ button:active {
         and good love :)
       </p>
 
+
       <p>
-        You deserve all the love and happiness!
+        You deserve all the love and happiness in the universe!
       </p>
+
 
       <p>
         Hope this made you smile :)
       </p>
 
-      <p>
-        There might be one more thing...
-      </p>
 
-      <button id="secretBtn">
-        CLICK HERE
-      </button>
+      <div class="button-container">
+
+        <button id="secretBtn">
+          MORE NERD STUFF?
+        </button>
+
+      </div>
 
     </div>
 
@@ -1072,9 +1262,9 @@ button:active {
 </section>
 
 
-<!-- =================================
-     SCENE 3
-================================= -->
+<!-- =================================================
+     SCENE 3 — ALIEN
+================================================= -->
 
 <section id="scene3" class="scene">
 
@@ -1083,43 +1273,102 @@ button:active {
   <div class="alien-container">
 
 
-    <!-- ALIEN -->
+    <!-- CUTE ALIEN -->
 
     <div class="alien">
 
-      <!-- BLONDE HAIR -->
 
-      <div class="alien-hair">
-        ♡ ♡ ♡
+      <!-- ANTENNAS -->
+
+      <div class="antenna antenna-left">
+        <span></span>
+      </div>
+
+      <div class="antenna antenna-right">
+        <span></span>
       </div>
 
 
-      <!-- FACE -->
+      <!-- HEAD -->
 
       <div class="alien-face">
 
         <div class="alien-eyes">
 
-          <span>●</span>
-          <span>●</span>
+          <span></span>
+          <span></span>
 
         </div>
 
-        <div class="alien-mouth">
-          ◡
+        <div class="alien-mouth"></div>
+
+      </div>
+
+
+      <!-- BODY -->
+
+      <div class="alien-body">
+
+
+        <!-- PINK POLO -->
+
+        <div class="alien-shirt">
+
+          <div class="collar"></div>
+
+          <div class="buttons">
+
+            <span></span>
+            <span></span>
+
+          </div>
+
+        </div>
+
+
+        <!-- ARMS -->
+
+        <div class="alien-arm arm-left"></div>
+
+        <div class="alien-arm arm-right"></div>
+
+
+        <!-- BLACK PANTS -->
+
+        <div class="alien-pants"></div>
+
+
+        <!-- STANDING LEG -->
+
+        <div class="alien-leg leg-left">
+
+          <div class="sock">
+
+            <span></span>
+            <span></span>
+
+          </div>
+
+        </div>
+
+
+        <!-- KICKING LEG -->
+
+        <div class="alien-leg leg-right">
+
+          <div class="sock">
+
+            <span></span>
+            <span></span>
+
+          </div>
+
         </div>
 
       </div>
 
 
-      <!-- PINK SHIRT -->
-
-      <div class="alien-shirt">
-        ⚽
-      </div>
-
-
-      <!-- SOCCER BALL -->
+      <!-- FOOTBALL -->
 
       <div class="soccer-ball">
         ⚽
@@ -1127,69 +1376,52 @@ button:active {
 
     </div>
 
+  </div>
 
-    <!-- SECRET TRANSMISSION -->
 
-    <div class="secret-box">
+  <!-- ERROR POPUP -->
 
-      <div class="secret-title">
-        SECRET TRANSMISSION UNLOCKED
-      </div>
+  <div
+    id="errorPopup"
+    class="error-popup"
+  >
 
-      <div class="scan-line"></div>
-
-      <p>
-        Scan complete
-      </p>
-
-      <p>
-        Birthday detected
-      </p>
-
-      <p>
-        Handsome:
-        <span>YES</span>
-      </p>
-
-      <p>
-        Age:
-        <span>CLASSIFIED</span>
-      </p>
-
-      <p>
-        Sexual tension:
-        <span class="danger">
-          ERROR - SYSTEM OVERHEATING
-        </span>
-      </p>
-
-      <p class="restart">
-        Please restart the alien immediately.
-      </p>
-
-      <button
-        id="errorBtn"
-        class="error-button"
-      >
-        ⚠ ERROR ⚠
-      </button>
-
+    <div class="error-title">
+      ⚠ SYSTEM ERROR ⚠
     </div>
+
+    <p>
+      Unauthorized birthday nerd detected.
+      <br><br>
+      System integrity compromised.
+      <br>
+      Please press the button below.
+    </p>
+
+    <button
+      id="errorBtn"
+      class="error-button"
+    >
+      ⚠ ERROR ⚠
+    </button>
 
   </div>
 
 </section>
 
 
-<!-- =================================
-     SCENE 4
-================================= -->
+<!-- =================================================
+     SCENE 4 — EXPLOSION
+================================================= -->
 
 <section id="scene4" class="scene">
 
   <div class="stars"></div>
 
-  <div id="explosion" class="explosion">
+  <div
+    id="explosion"
+    class="explosion"
+  >
     💥
   </div>
 
@@ -1203,9 +1435,9 @@ button:active {
 </div>
 
 
-<!-- =================================
+<!-- =================================================
      JAVASCRIPT
-================================= -->
+================================================= -->
 
 <script>
 
@@ -1239,6 +1471,9 @@ const secretBtn =
 
 const errorBtn =
   document.getElementById("errorBtn");
+
+const errorPopup =
+  document.getElementById("errorPopup");
 
 
 /* =========================
@@ -1275,7 +1510,7 @@ openBtn.addEventListener(
 
 
 /* =========================
-   SECRET TRANSMISSION
+   MORE NERD STUFF
 ========================= */
 
 secretBtn.addEventListener(
@@ -1284,19 +1519,43 @@ secretBtn.addEventListener(
 
     showScene(scene3);
 
+    /*
+      Wait 7 seconds before
+      showing the error popup.
+    */
+
+    errorPopup.classList.remove("show");
+
+    setTimeout(
+      function() {
+
+        errorPopup.classList.add("show");
+
+      },
+      7000
+    );
+
   }
 );
 
 
 /* =========================
-   ERROR + EXPLOSION
+   ERROR → EXPLOSION
 ========================= */
 
 errorBtn.addEventListener(
   "click",
   function() {
 
+    /* Hide popup */
+
+    errorPopup.classList.remove("show");
+
+
+    /* Go to explosion */
+
     showScene(scene4);
+
 
     const explosion =
       document.getElementById("explosion");
@@ -1305,15 +1564,13 @@ errorBtn.addEventListener(
       document.querySelector(".boom-text");
 
 
+    /* Restart animations */
+
     explosion.classList.remove("go");
 
     boomText.classList.remove("show");
 
-
-    /* Restart animation */
-
     void explosion.offsetWidth;
-
 
     explosion.classList.add("go");
 
