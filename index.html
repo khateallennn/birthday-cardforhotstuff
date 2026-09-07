@@ -10,9 +10,9 @@
 
 <style>
 
-/* =========================
+/* =====================================================
    RESET
-========================= */
+===================================================== */
 
 * {
   box-sizing: border-box;
@@ -34,9 +34,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    SPACE
-========================= */
+===================================================== */
 
 .space {
   width: 100%;
@@ -59,9 +59,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    STARS
-========================= */
+===================================================== */
 
 .stars {
   position: absolute;
@@ -84,9 +84,9 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    SCENES
-========================= */
+===================================================== */
 
 .scene {
   position: absolute;
@@ -106,7 +106,9 @@ body {
 
 .scene.active {
   display: flex;
-  animation: fadeIn 0.8s ease;
+
+  animation:
+    fadeIn 0.8s ease;
 }
 
 @keyframes fadeIn {
@@ -124,11 +126,12 @@ body {
 }
 
 
-/* =========================
+/* =====================================================
    BUTTONS
-========================= */
+===================================================== */
 
 button {
+
   border: 1px solid white;
 
   background: transparent;
@@ -149,32 +152,44 @@ button {
 }
 
 button:hover {
+
   background: white;
+
   color: #050510;
-  transform: translateY(-2px);
+
+  transform:
+    translateY(-2px);
 }
 
 button:active {
-  transform: scale(0.96);
+
+  transform:
+    scale(0.96);
 }
 
 
 /* =====================================================
-   SCENE 1 — OPENING
+   SCENE 1
 ===================================================== */
 
 .transmission-box {
 
-  width: min(600px, 90vw);
+  width:
+    min(600px, 90vw);
 
-  padding: 50px 30px;
+  padding:
+    50px 30px;
 
-  border: 1px solid rgba(255,255,255,0.25);
+  border:
+    1px solid
+    rgba(255,255,255,0.25);
 
-  background: rgba(5,5,16,0.75);
+  background:
+    rgba(5,5,16,0.75);
 
   box-shadow:
-    0 0 40px rgba(130,100,255,0.15);
+    0 0 40px
+    rgba(130,100,255,0.15);
 
   position: relative;
 
@@ -191,300 +206,500 @@ button:active {
   margin-bottom: 25px;
 
   animation:
-    floatAlien 3s ease-in-out infinite;
+    floatEmoji
+    3s ease-in-out infinite;
 }
 
-@keyframes floatAlien {
+@keyframes floatEmoji {
 
   0%,
   100% {
-    transform: translateY(0);
+    transform:
+      translateY(0);
   }
 
   50% {
-    transform: translateY(-10px);
+    transform:
+      translateY(-10px);
   }
 
 }
 
 
-/* Opening text */
+/* Opening title */
 
 .transmission-box h1 {
 
-  font-size: clamp(24px, 5vw, 40px);
+  font-size:
+    clamp(24px, 5vw, 40px);
 
-  margin: 10px 0 35px;
+  font-weight:
+    normal;
 
-  font-weight: normal;
+  margin:
+    10px 0 30px;
 }
+
+
+/* Opening paragraph */
 
 .transmission-box p {
 
-  font-size: 15px;
+  font-size:
+    15px;
 
-  line-height: 1.8;
+  line-height:
+    1.8;
 
-  margin-bottom: 35px;
+  opacity:
+    0.75;
 
-  opacity: 0.75;
+  margin-bottom:
+    35px;
 }
 
 
 /* =====================================================
-   SCENE 2 — BIRTHDAY
+   SCENE 2
 ===================================================== */
 
 .birthday-container {
 
-  width: min(850px, 95vw);
+  width:
+    min(850px, 95vw);
 
-  height: 95vh;
+  height:
+    95vh;
 
-  overflow-y: auto;
+  overflow-y:
+    auto;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  align-items: center;
+  align-items:
+    center;
 
-  padding: 30px 10px 80px;
+  padding:
+    30px 10px 100px;
 
-  scrollbar-width: thin;
-}
-
-
-/* =========================
-   MEME
-========================= */
-
-.meme-image {
-
-  width: min(500px, 90vw);
-
-  max-height: 70vh;
-
-  object-fit: contain;
-
-  margin: 20px 0 70px;
-
-  border-radius: 4px;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.4);
-}
-
-
-/* =========================
-   MESSAGE
-========================= */
-
-.message {
-
-  width: min(650px, 90vw);
-
-  padding-bottom: 50px;
-
-  text-align: left;
-}
-
-.message h2 {
-
-  font-family: Arial, sans-serif;
-
-  font-size: clamp(28px, 6vw, 42px);
-
-  margin-bottom: 35px;
-
-  text-align: center;
-
-  color: white;
-}
-
-.message p {
-
-  font-family: Arial, sans-serif;
-
-  font-size: 17px;
-
-  line-height: 1.9;
-
-  margin: 25px 0;
-
-  color: rgba(255,255,255,0.88);
-}
-
-.message .list {
-
-  font-family: "Courier New", monospace;
-
-  line-height: 2;
-
-  font-size: 15px;
-
-  margin: 30px 0;
-
-  text-align: center;
-}
-
-.message .button-container {
-
-  text-align: center;
-
-  margin-top: 45px;
+  scrollbar-width:
+    thin;
 }
 
 
 /* =====================================================
-   SCENE 3 — CUTE FOOTBALL ALIEN
+   MEME
 ===================================================== */
 
-.alien-container {
+.meme-image {
 
-  width: min(650px, 92vw);
+  width:
+    min(500px, 90vw);
 
-  display: flex;
+  max-height:
+    70vh;
 
-  flex-direction: column;
+  object-fit:
+    contain;
 
-  align-items: center;
+  margin:
+    20px 0 70px;
 
-  position: relative;
+  border-radius:
+    8px;
 
-  z-index: 3;
+  box-shadow:
+    0 20px 60px
+    rgba(0,0,0,0.45);
 }
 
 
-/* =========================
+/* =====================================================
+   CUTE BIRTHDAY CARD
+===================================================== */
+
+.message-card {
+
+  width:
+    min(650px, 90vw);
+
+  padding:
+    45px 40px 50px;
+
+  background:
+    #f7eee2;
+
+  color:
+    #292321;
+
+  border-radius:
+    12px;
+
+  box-shadow:
+    0 25px 70px
+    rgba(0,0,0,0.5);
+
+  position:
+    relative;
+
+  transform:
+    rotate(-0.5deg);
+
+  text-align:
+    left;
+}
+
+
+/* Little decorative corners */
+
+.message-card::before {
+
+  content:
+    "✦";
+
+  position:
+    absolute;
+
+  top:
+    18px;
+
+  left:
+    22px;
+
+  font-size:
+    20px;
+
+  color:
+    #d8899f;
+}
+
+.message-card::after {
+
+  content:
+    "✦";
+
+  position:
+    absolute;
+
+  bottom:
+    18px;
+
+  right:
+    22px;
+
+  font-size:
+    20px;
+
+  color:
+    #d8899f;
+}
+
+
+/* Birthday title */
+
+.message-card h2 {
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    clamp(25px, 5vw, 38px);
+
+  text-align:
+    center;
+
+  margin:
+    0 0 35px;
+
+  color:
+    #332826;
+}
+
+
+/* Message */
+
+.message-card p {
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  font-size:
+    15px;
+
+  line-height:
+    1.9;
+
+  margin:
+    24px 0;
+
+  color:
+    #332826;
+}
+
+
+/* Good things */
+
+.message-card .good-things {
+
+  text-align:
+    center;
+
+  line-height:
+    2.1;
+
+  margin:
+    28px 0;
+}
+
+
+/* Button */
+
+.message-button {
+
+  text-align:
+    center;
+
+  margin-top:
+    40px;
+}
+
+.message-button button {
+
+  border-color:
+    #332826;
+
+  color:
+    #332826;
+}
+
+.message-button button:hover {
+
+  background:
+    #332826;
+
+  color:
+    #f7eee2;
+}
+
+
+/* =====================================================
+   SCENE 3
+===================================================== */
+
+.scene3-container {
+
+  width:
+    min(700px, 94vw);
+
+  height:
+    95vh;
+
+  overflow-y:
+    auto;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    center;
+
+  justify-content:
+    flex-start;
+
+  padding:
+    40px 10px 80px;
+
+  scrollbar-width:
+    thin;
+}
+
+
+/* =====================================================
    ALIEN
-========================= */
+===================================================== */
 
 .alien {
 
-  width: 250px;
+  width:
+    250px;
 
-  height: 300px;
+  height:
+    300px;
 
-  position: relative;
+  position:
+    relative;
 
-  margin-bottom: 25px;
+  margin-bottom:
+    15px;
+
+  flex-shrink:
+    0;
 
   animation:
-    alienFloat 3s ease-in-out infinite;
+    alienFloat
+    3s ease-in-out infinite;
 }
 
 
-/* =========================
+/* =====================================================
    ANTENNAS
-========================= */
+===================================================== */
 
 .antenna {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 5px;
-  height: 32px;
+  width:
+    5px;
 
-  background: #4ca84c;
+  height:
+    32px;
 
-  top: -20px;
+  background:
+    #4ca84c;
 
-  z-index: 1;
+  top:
+    -20px;
 
-  border-radius: 5px;
+  z-index:
+    1;
+
+  border-radius:
+    5px;
 }
 
 .antenna-left {
 
-  left: 91px;
+  left:
+    91px;
 
-  transform: rotate(-15deg);
+  transform:
+    rotate(-15deg);
 }
 
 .antenna-right {
 
-  right: 91px;
+  right:
+    91px;
 
-  transform: rotate(15deg);
+  transform:
+    rotate(15deg);
 }
 
 .antenna span {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 13px;
-  height: 13px;
+  width:
+    13px;
 
-  background: #79d96b;
+  height:
+    13px;
 
-  border: 2px solid #438f42;
+  background:
+    #79d96b;
 
-  border-radius: 50%;
+  border:
+    2px solid
+    #438f42;
 
-  top: -8px;
+  border-radius:
+    50%;
 
-  left: -4px;
+  top:
+    -8px;
+
+  left:
+    -4px;
 }
 
 
-/* =========================
-   ALIEN HEAD
-========================= */
+/* =====================================================
+   ALIEN FACE
+===================================================== */
 
 .alien-face {
 
-  width: 145px;
+  width:
+    145px;
 
-  height: 125px;
+  height:
+    125px;
 
-  background: #79d96b;
+  background:
+    #79d96b;
 
   border-radius:
     50% 50% 48% 48%;
 
-  position: absolute;
+  position:
+    absolute;
 
-  left: 52px;
+  left:
+    52px;
 
-  top: 5px;
+  top:
+    5px;
 
-  border: 3px solid #438f42;
+  border:
+    3px solid
+    #438f42;
 
   box-shadow:
-    0 8px 25px rgba(0,0,0,0.35);
+    0 8px 25px
+    rgba(0,0,0,0.35);
 
-  z-index: 5;
+  z-index:
+    5;
 }
 
 
-/* =========================
-   EARS
-========================= */
+/* Ears */
 
 .alien-face::before,
 .alien-face::after {
 
-  content: "";
+  content:
+    "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 25px;
+  width:
+    25px;
 
-  height: 35px;
+  height:
+    35px;
 
-  background: #79d96b;
+  background:
+    #79d96b;
 
-  border: 3px solid #438f42;
+  border:
+    3px solid
+    #438f42;
 
-  top: 50px;
+  top:
+    50px;
 
-  z-index: -1;
+  z-index:
+    -1;
 }
 
 .alien-face::before {
 
-  left: -20px;
+  left:
+    -20px;
 
   border-radius:
     60% 20% 20% 60%;
@@ -492,157 +707,202 @@ button:active {
 
 .alien-face::after {
 
-  right: -20px;
+  right:
+    -20px;
 
   border-radius:
     20% 60% 60% 20%;
 }
 
 
-/* =========================
+/* =====================================================
    BLUE EYES
-========================= */
+===================================================== */
 
 .alien-eyes {
 
-  position: absolute;
+  position:
+    absolute;
 
-  top: 37px;
+  top:
+    37px;
 
-  left: 25px;
+  left:
+    25px;
 
-  right: 25px;
+  right:
+    25px;
 
-  display: flex;
+  display:
+    flex;
 
-  justify-content: space-between;
+  justify-content:
+    space-between;
 }
 
 .alien-eyes span {
 
-  width: 38px;
+  width:
+    38px;
 
-  height: 45px;
+  height:
+    45px;
 
-  background: #65bfff;
+  background:
+    #65bfff;
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 
-  border: 3px solid #317caf;
+  border:
+    3px solid
+    #317caf;
 
-  position: relative;
+  position:
+    relative;
 
   box-shadow:
-    inset 0 0 8px rgba(255,255,255,0.5);
+    inset 0 0 8px
+    rgba(255,255,255,0.5);
 }
 
 
-/* EYE HIGHLIGHTS */
+/* Eye highlight */
 
 .alien-eyes span::after {
 
-  content: "";
+  content:
+    "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 9px;
+  width:
+    9px;
 
-  height: 9px;
+  height:
+    9px;
 
-  background: white;
+  background:
+    white;
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 
-  top: 7px;
+  top:
+    7px;
 
-  left: 8px;
+  left:
+    8px;
 }
 
 
-/* =========================
-   SMILE
-========================= */
+/* Smile */
 
 .alien-mouth {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 30px;
+  width:
+    30px;
 
-  height: 15px;
+  height:
+    15px;
 
   border-bottom:
-    3px solid #36783a;
+    3px solid
+    #36783a;
 
   border-radius:
     0 0 50% 50%;
 
-  bottom: 20px;
+  bottom:
+    20px;
 
-  left: 54px;
+  left:
+    54px;
 }
 
 
-/* =========================
+/* =====================================================
    ALIEN BODY
-========================= */
+===================================================== */
 
 .alien-body {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 150px;
+  width:
+    150px;
 
-  height: 170px;
+  height:
+    170px;
 
-  left: 50px;
+  left:
+    50px;
 
-  top: 112px;
+  top:
+    112px;
 }
 
 
-/* =========================
-   PINK POLO
-========================= */
+/* Pink polo */
 
 .alien-shirt {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 120px;
+  width:
+    120px;
 
-  height: 82px;
+  height:
+    82px;
 
-  left: 15px;
+  left:
+    15px;
 
-  top: 0;
+  top:
+    0;
 
-  background: #f47fa5;
+  background:
+    #f47fa5;
 
-  border: 3px solid #c8567d;
+  border:
+    3px solid
+    #c8567d;
 
   border-radius:
     25px 25px 12px 12px;
 
-  z-index: 3;
+  z-index:
+    3;
 }
 
 
-/* COLLAR */
+/* Collar */
 
 .collar {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 42px;
+  width:
+    42px;
 
-  height: 28px;
+  height:
+    28px;
 
-  left: 36px;
+  left:
+    36px;
 
-  top: -1px;
+  top:
+    -1px;
 
-  background: #ffd2df;
+  background:
+    #ffd2df;
 
   clip-path:
     polygon(
@@ -653,206 +913,256 @@ button:active {
 }
 
 
-/* BUTTONS */
+/* Buttons */
 
 .buttons {
 
-  position: absolute;
+  position:
+    absolute;
 
-  left: 57px;
+  left:
+    57px;
 
-  top: 27px;
+  top:
+    27px;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
-  gap: 5px;
+  gap:
+    5px;
 }
 
 .buttons span {
 
-  width: 6px;
+  width:
+    6px;
 
-  height: 6px;
+  height:
+    6px;
 
-  background: #a94468;
+  background:
+    #a94468;
 
-  border-radius: 50%;
+  border-radius:
+    50%;
 }
 
 
-/* =========================
+/* =====================================================
    ARMS
-========================= */
+===================================================== */
 
 .alien-arm {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 22px;
+  width:
+    22px;
 
-  height: 65px;
+  height:
+    65px;
 
-  background: #79d96b;
+  background:
+    #79d96b;
 
-  border: 3px solid #438f42;
+  border:
+    3px solid
+    #438f42;
 
-  border-radius: 20px;
+  border-radius:
+    20px;
 
-  top: 8px;
+  top:
+    8px;
 
-  z-index: 2;
+  z-index:
+    2;
 }
 
 .arm-left {
 
-  left: -4px;
+  left:
+    -4px;
 
-  transform: rotate(25deg);
+  transform:
+    rotate(25deg);
 }
 
 .arm-right {
 
-  right: -4px;
+  right:
+    -4px;
 
-  transform: rotate(-25deg);
+  transform:
+    rotate(-25deg);
 }
 
 
-/* =========================
-   BLACK PANTS
-========================= */
+/* =====================================================
+   PANTS
+===================================================== */
 
 .alien-pants {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 120px;
+  width:
+    120px;
 
-  height: 58px;
+  height:
+    58px;
 
-  left: 15px;
+  left:
+    15px;
 
-  top: 73px;
+  top:
+    73px;
 
-  background: #17171d;
+  background:
+    #17171d;
 
   border-radius:
     5px 5px 15px 15px;
 
-  z-index: 2;
+  z-index:
+    2;
 }
 
 
-/* =========================
+/* =====================================================
    LEGS
-========================= */
+===================================================== */
 
 .alien-leg {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 28px;
+  width:
+    28px;
 
-  height: 70px;
+  height:
+    70px;
 
-  background: #17171d;
+  background:
+    #17171d;
 
-  top: 112px;
+  top:
+    112px;
 
-  z-index: 1;
+  z-index:
+    1;
 
   border-radius:
     0 0 8px 8px;
 }
 
-
-/* STANDING LEG */
-
 .leg-left {
 
-  left: 38px;
+  left:
+    38px;
 
-  transform: rotate(5deg);
+  transform:
+    rotate(5deg);
 }
-
-
-/* KICKING LEG */
 
 .leg-right {
 
-  right: 28px;
+  right:
+    28px;
 
-  transform: rotate(-48deg);
+  transform:
+    rotate(-48deg);
 
   transform-origin:
     top center;
 }
 
 
-/* =========================
+/* =====================================================
    SOCKS
-========================= */
+===================================================== */
 
 .sock {
 
-  position: absolute;
+  position:
+    absolute;
 
-  width: 29px;
+  width:
+    29px;
 
-  height: 34px;
+  height:
+    34px;
 
-  bottom: -27px;
+  bottom:
+    -27px;
 
-  left: -1px;
+  left:
+    -1px;
 
-  background: white;
+  background:
+    white;
 
   border-radius:
     3px 3px 9px 9px;
 
   border:
-    2px solid #d9d9d9;
+    2px solid
+    #d9d9d9;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 }
-
-
-/* GREEN STRIPES */
 
 .sock span {
 
-  display: block;
+  display:
+    block;
 
-  width: 100%;
+  width:
+    100%;
 
-  height: 5px;
+  height:
+    5px;
 
-  background: #64b85b;
+  background:
+    #64b85b;
 
-  margin-top: 5px;
+  margin-top:
+    5px;
 }
 
 
-/* =========================
+/* =====================================================
    FOOTBALL
-========================= */
+===================================================== */
 
 .soccer-ball {
 
-  position: absolute;
+  position:
+    absolute;
 
-  right: -5px;
+  right:
+    -5px;
 
-  bottom: 43px;
+  bottom:
+    43px;
 
-  font-size: 48px;
+  font-size:
+    48px;
 
-  z-index: 8;
+  z-index:
+    8;
 
   animation:
-    soccerKick 1.5s ease-in-out infinite;
+    soccerKick
+    1.5s ease-in-out infinite;
 }
 
 @keyframes soccerKick {
@@ -887,6 +1197,9 @@ button:active {
 
 }
 
+
+/* Alien floating */
+
 @keyframes alienFloat {
 
   0%,
@@ -908,70 +1221,294 @@ button:active {
 
 
 /* =====================================================
+   SECRET TRANSMISSION
+===================================================== */
+
+.secret-box {
+
+  width:
+    min(650px, 90vw);
+
+  padding:
+    30px;
+
+  border:
+    1px solid
+    #48ff91;
+
+  background:
+    rgba(0,20,10,0.85);
+
+  box-shadow:
+    0 0 30px
+    rgba(72,255,145,0.15);
+
+  font-family:
+    "Courier New",
+    monospace;
+
+  text-align:
+    left;
+
+  flex-shrink:
+    0;
+}
+
+
+/* Title */
+
+.secret-title {
+
+  color:
+    #48ff91;
+
+  font-weight:
+    bold;
+
+  font-size:
+    15px;
+
+  letter-spacing:
+    2px;
+
+  margin-bottom:
+    25px;
+
+  text-align:
+    center;
+
+  opacity:
+    0;
+
+  animation:
+    scanAppear
+    0.5s ease
+    forwards;
+}
+
+
+/* Line */
+
+.scan-line {
+
+  width:
+    100%;
+
+  height:
+    1px;
+
+  background:
+    #48ff91;
+
+  margin-bottom:
+    20px;
+
+  opacity:
+    0.5;
+}
+
+
+/* Scan information */
+
+.scan-info {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    12px;
+}
+
+
+/* Each line */
+
+.scan-item {
+
+  font-size:
+    13px;
+
+  line-height:
+    1.6;
+
+  color:
+    #b8ffc9;
+
+  opacity:
+    0;
+}
+
+
+/* Green labels */
+
+.scan-item span {
+
+  color:
+    #48ff91;
+}
+
+
+/* Special lines */
+
+.scan-item.handsome {
+
+  margin-top:
+    12px;
+}
+
+.scan-item.sexual {
+
+  margin-top:
+    10px;
+
+  color:
+    white;
+}
+
+
+/* Appearing animation */
+
+.scan-item.show {
+
+  animation:
+    scanAppear
+    0.6s ease
+    forwards;
+}
+
+@keyframes scanAppear {
+
+  from {
+
+    opacity:
+      0;
+
+    transform:
+      translateX(-10px);
+  }
+
+  to {
+
+    opacity:
+      1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* Final error line */
+
+.sexual-error {
+
+  color:
+    #ff5c5c !important;
+
+  animation:
+    errorFlash
+    0.5s ease
+    infinite alternate;
+}
+
+@keyframes errorFlash {
+
+  from {
+    opacity:
+      0.6;
+  }
+
+  to {
+    opacity:
+      1;
+  }
+
+}
+
+
+/* =====================================================
    ERROR POPUP
 ===================================================== */
 
 .error-popup {
 
-  position: fixed;
+  position:
+    fixed;
 
-  left: 50%;
+  left:
+    50%;
 
-  top: 50%;
+  top:
+    50%;
 
   transform:
     translate(-50%, -50%)
     scale(0.8);
 
-  width: min(420px, 85vw);
+  width:
+    min(430px, 85vw);
 
-  padding: 30px;
+  padding:
+    30px;
 
-  background: #090909;
+  background:
+    #090909;
 
-  border: 2px solid #ff3b3b;
+  border:
+    2px solid
+    #ff3b3b;
 
   box-shadow:
-    0 0 40px rgba(255,0,0,0.4);
+    0 0 40px
+    rgba(255,0,0,0.4);
 
-  z-index: 100;
+  z-index:
+    100;
 
-  opacity: 0;
+  opacity:
+    0;
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
-/* Popup appears */
+/* Show popup */
 
 .error-popup.show {
 
   animation:
-    popupAppear 0.5s ease forwards;
+    popupAppear
+    0.5s ease
+    forwards;
 
-  pointer-events: auto;
+  pointer-events:
+    auto;
 }
 
 @keyframes popupAppear {
 
   from {
 
-    opacity: 0;
+    opacity:
+      0;
 
     transform:
       translate(-50%, -50%)
       scale(0.8);
-
   }
 
   to {
 
-    opacity: 1;
+    opacity:
+      1;
 
     transform:
       translate(-50%, -50%)
       scale(1);
-
   }
 
 }
@@ -981,133 +1518,170 @@ button:active {
 
 .error-title {
 
-  color: #ff4d4d;
+  color:
+    #ff4d4d;
 
-  font-size: 20px;
+  font-size:
+    20px;
 
-  font-weight: bold;
+  font-weight:
+    bold;
 
-  letter-spacing: 3px;
+  letter-spacing:
+    3px;
 
-  margin-bottom: 20px;
+  margin-bottom:
+    20px;
 }
 
 .error-popup p {
 
-  font-size: 13px;
+  font-size:
+    13px;
 
-  line-height: 1.7;
+  line-height:
+    1.8;
 
-  color: #ddd;
+  color:
+    #ddd;
 
-  margin-bottom: 25px;
+  margin-bottom:
+    25px;
 }
+
+
+/* Error button */
 
 .error-button {
 
-  border-color: #ff4d4d;
+  border-color:
+    #ff4d4d;
 
-  color: #ff5c5c;
+  color:
+    #ff5c5c;
 
-  width: 100%;
+  width:
+    100%;
 }
 
 .error-button:hover {
 
-  background: #ff4d4d;
+  background:
+    #ff4d4d;
 
-  color: white;
+  color:
+    white;
 }
 
 
 /* =====================================================
-   SCENE 4 — EXPLOSION
+   SCENE 4
 ===================================================== */
 
 .explosion {
 
-  font-size: 150px;
+  font-size:
+    150px;
 
-  opacity: 0;
+  opacity:
+    0;
 
-  transform: scale(0.1);
+  transform:
+    scale(0.1);
 
-  position: relative;
+  position:
+    relative;
 
-  z-index: 5;
+  z-index:
+    5;
 }
 
 .explosion.go {
 
   animation:
-    explode 1.2s ease forwards;
+    explode
+    1.2s ease
+    forwards;
 }
 
 @keyframes explode {
 
   0% {
 
-    opacity: 0;
+    opacity:
+      0;
 
-    transform: scale(0.1);
-
+    transform:
+      scale(0.1);
   }
 
   30% {
 
-    opacity: 1;
+    opacity:
+      1;
 
-    transform: scale(1.3);
-
+    transform:
+      scale(1.3);
   }
 
   60% {
 
-    opacity: 1;
+    opacity:
+      1;
 
-    transform: scale(2);
-
+    transform:
+      scale(2);
   }
 
   100% {
 
-    opacity: 0;
+    opacity:
+      0;
 
-    transform: scale(5);
-
+    transform:
+      scale(5);
   }
 
 }
 
 .boom-text {
 
-  position: absolute;
+  position:
+    absolute;
 
-  font-size: 16px;
+  font-size:
+    16px;
 
-  letter-spacing: 5px;
+  letter-spacing:
+    5px;
 
-  opacity: 0;
+  opacity:
+    0;
 }
 
 .boom-text.show {
 
   animation:
-    boomText 1.5s ease forwards;
+    boomText
+    1.5s ease
+    forwards;
 }
 
 @keyframes boomText {
 
   0% {
-    opacity: 0;
+    opacity:
+      0;
   }
 
   40% {
-    opacity: 1;
+    opacity:
+      1;
   }
 
   100% {
-    opacity: 0;
+    opacity:
+      0;
   }
 
 }
@@ -1120,20 +1694,48 @@ button:active {
 @media (max-width: 600px) {
 
   .scene {
-    padding: 15px;
+    padding:
+      15px;
+  }
+
+  .birthday-container {
+    padding:
+      20px 8px 80px;
+  }
+
+  .message-card {
+    padding:
+      35px 25px 40px;
+  }
+
+  .message-card p {
+    font-size:
+      14px;
   }
 
   .meme-image {
-    width: 90vw;
-    max-height: 60vh;
+    max-height:
+      60vh;
   }
 
-  .message p {
-    font-size: 15px;
+  .scene3-container {
+    padding-top:
+      30px;
   }
 
   .alien {
-    transform: scale(0.85);
+    transform:
+      scale(0.82);
+  }
+
+  .secret-box {
+    padding:
+      20px;
+  }
+
+  .scan-item {
+    font-size:
+      11px;
   }
 
 }
@@ -1148,11 +1750,14 @@ button:active {
 <div class="space">
 
 
-<!-- =================================================
-     SCENE 1 — OPENING
-================================================= -->
+<!-- =====================================================
+     SCENE 1
+===================================================== -->
 
-<section id="scene1" class="scene active">
+<section
+  id="scene1"
+  class="scene active"
+>
 
   <div class="stars"></div>
 
@@ -1179,18 +1784,23 @@ button:active {
 </section>
 
 
-<!-- =================================================
-     SCENE 2 — BIRTHDAY
-================================================= -->
+<!-- =====================================================
+     SCENE 2
+===================================================== -->
 
-<section id="scene2" class="scene">
+<section
+  id="scene2"
+  class="scene"
+>
 
   <div class="stars"></div>
 
   <div class="birthday-container">
 
 
-    <!-- MEME ONLY -->
+    <!-- =========================
+         MEME
+    ========================= -->
 
     <img
       class="meme-image"
@@ -1199,9 +1809,11 @@ button:active {
     >
 
 
-    <!-- MESSAGE -->
+    <!-- =========================
+         CUTE MESSAGE CARD
+    ========================= -->
 
-    <div class="message">
+    <div class="message-card">
 
       <h2>
         Happy birthday hot stuff
@@ -1229,11 +1841,16 @@ button:active {
       </p>
 
 
-      <p class="list">
+      <p class="good-things">
+
         good music<br>
+
         good people<br>
+
         good food<br>
+
         and good love :)
+
       </p>
 
 
@@ -1247,7 +1864,7 @@ button:active {
       </p>
 
 
-      <div class="button-container">
+      <div class="message-button">
 
         <button id="secretBtn">
           MORE NERD STUFF?
@@ -1262,18 +1879,23 @@ button:active {
 </section>
 
 
-<!-- =================================================
-     SCENE 3 — ALIEN
-================================================= -->
+<!-- =====================================================
+     SCENE 3
+===================================================== -->
 
-<section id="scene3" class="scene">
+<section
+  id="scene3"
+  class="scene"
+>
 
   <div class="stars"></div>
 
-  <div class="alien-container">
+  <div class="scene3-container">
 
 
-    <!-- CUTE ALIEN -->
+    <!-- =========================
+         CUTE FOOTBALL ALIEN
+    ========================= -->
 
     <div class="alien">
 
@@ -1333,7 +1955,7 @@ button:active {
         <div class="alien-arm arm-right"></div>
 
 
-        <!-- BLACK PANTS -->
+        <!-- PANTS -->
 
         <div class="alien-pants"></div>
 
@@ -1376,10 +1998,193 @@ button:active {
 
     </div>
 
+
+    <!-- =========================
+         SECRET SCAN
+    ========================= -->
+
+    <div
+      id="secretBox"
+      class="secret-box"
+    >
+
+      <div class="secret-title">
+        SECRET TRANSMISSION UNLOCKED
+      </div>
+
+      <div class="scan-line"></div>
+
+
+      <div class="scan-info">
+
+
+        <div
+          class="scan-item"
+          data-delay="500"
+        >
+          Scan complete
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="1100"
+        >
+          <span>Name:</span>
+          Liam James Richards
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="1700"
+        >
+          <span>Place of birth:</span>
+          Chelmsford, Essex, England
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="2300"
+        >
+          <span>Date of birth:</span>
+          September 8, 1990
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="2900"
+        >
+          <span>Time of birth:</span>
+          12:24 AM
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="3500"
+        >
+          <span>Zodiac sign:</span>
+          Virgo
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="4100"
+        >
+          <span>Brain activity:</span>
+          QUESTIONABLE
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="4700"
+        >
+          <span>Dad jokes:</span>
+          DETECTED
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="5300"
+        >
+          <span>Sarcasm levels:</span>
+          DANGEROUS
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="5900"
+        >
+          <span>Probability of being trouble:</span>
+          99.9%
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="6500"
+        >
+          <span>Overall hotness:</span>
+          SYSTEM CANNOT COMPUTE
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="7100"
+        >
+          <span>Threat level:</span>
+          HOT
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="7700"
+        >
+          <span>Music taste:</span>
+          REALLY GOOD
+        </div>
+
+
+        <div
+          class="scan-item handsome"
+          data-delay="8300"
+        >
+          <span>Handsome:</span>
+          YES
+        </div>
+
+
+        <div
+          class="scan-item"
+          data-delay="8900"
+        >
+          <span>Compatibility with me:</span>
+          YES
+        </div>
+
+
+        <div
+          id="sexualQuestion"
+          class="scan-item sexual"
+          data-delay="9500"
+        >
+          <span>Sexual Tension:</span>
+          ?????
+        </div>
+
+
+        <div
+          id="sexualError"
+          class="scan-item sexual"
+          style="display:none;"
+        >
+          <span>Sexual Tension:</span>
+          <strong class="sexual-error">
+            ERROR - SYSTEM OVERHEATING
+          </strong>
+        </div>
+
+
+      </div>
+
+    </div>
+
+
   </div>
 
 
-  <!-- ERROR POPUP -->
+  <!-- =================================================
+       ERROR POPUP
+  ================================================= -->
 
   <div
     id="errorPopup"
@@ -1391,11 +2196,17 @@ button:active {
     </div>
 
     <p>
-      Unauthorized birthday nerd detected.
+
+      WARNING:<br>
+
+      UNAUTHORIZED LEVELS OF CHEMISTRY DETECTED.
       <br><br>
-      System integrity compromised.
-      <br>
-      Please press the button below.
+
+      ALIEN SYSTEMS ARE OVERHEATING.
+      <br><br>
+
+      PLEASE PRESS ERROR TO CONTINUE.
+
     </p>
 
     <button
@@ -1410,11 +2221,14 @@ button:active {
 </section>
 
 
-<!-- =================================================
-     SCENE 4 — EXPLOSION
-================================================= -->
+<!-- =====================================================
+     SCENE 4
+===================================================== -->
 
-<section id="scene4" class="scene">
+<section
+  id="scene4"
+  class="scene"
+>
 
   <div class="stars"></div>
 
@@ -1435,16 +2249,17 @@ button:active {
 </div>
 
 
-<!-- =================================================
+<!-- =====================================================
      JAVASCRIPT
-================================================= -->
+===================================================== -->
 
 <script>
 
+<script>
 
-/* =========================
+/* =====================================================
    GET SCENES
-========================= */
+===================================================== */
 
 const scene1 =
   document.getElementById("scene1");
@@ -1459,9 +2274,9 @@ const scene4 =
   document.getElementById("scene4");
 
 
-/* =========================
-   GET BUTTONS
-========================= */
+/* =====================================================
+   BUTTONS
+===================================================== */
 
 const openBtn =
   document.getElementById("openBtn");
@@ -1476,9 +2291,9 @@ const errorPopup =
   document.getElementById("errorPopup");
 
 
-/* =========================
+/* =====================================================
    CHANGE SCENE
-========================= */
+===================================================== */
 
 function showScene(sceneToShow) {
 
@@ -1495,9 +2310,9 @@ function showScene(sceneToShow) {
 }
 
 
-/* =========================
+/* =====================================================
    OPEN TRANSMISSION
-========================= */
+===================================================== */
 
 openBtn.addEventListener(
   "click",
@@ -1509,9 +2324,9 @@ openBtn.addEventListener(
 );
 
 
-/* =========================
+/* =====================================================
    MORE NERD STUFF
-========================= */
+===================================================== */
 
 secretBtn.addEventListener(
   "click",
@@ -1519,29 +2334,175 @@ secretBtn.addEventListener(
 
     showScene(scene3);
 
-    /*
-      Wait 7 seconds before
-      showing the error popup.
-    */
+
+    /* -----------------------------------------------
+       RESET EVERYTHING
+    ----------------------------------------------- */
 
     errorPopup.classList.remove("show");
+
+
+    const scanItems =
+      document.querySelectorAll(".scan-item");
+
+
+    scanItems.forEach(
+      function(item) {
+
+        item.classList.remove("show");
+
+      }
+    );
+
+
+    /* Reset sexual tension */
+
+    const sexualQuestion =
+      document.getElementById(
+        "sexualQuestion"
+      );
+
+    const sexualError =
+      document.getElementById(
+        "sexualError"
+      );
+
+
+    sexualQuestion.style.display =
+      "block";
+
+    sexualQuestion.classList.remove(
+      "show"
+    );
+
+
+    sexualError.style.display =
+      "none";
+
+    sexualError.classList.remove(
+      "show"
+    );
+
+
+    /* -----------------------------------------------
+       SCAN THE INFORMATION
+    ----------------------------------------------- */
+
+    let lastScanTime = 0;
+
+
+    scanItems.forEach(
+      function(item) {
+
+        const delay =
+          parseInt(
+            item.dataset.delay
+          );
+
+
+        /* Remember when the final line appears */
+
+        if (delay > lastScanTime) {
+          lastScanTime = delay;
+        }
+
+
+        setTimeout(
+          function() {
+
+            item.classList.add("show");
+
+          },
+          delay
+        );
+
+      }
+    );
+
+
+    /* -----------------------------------------------
+       SEXUAL TENSION
+       
+       The ????? appears as the final scan result.
+    ----------------------------------------------- */
+
+    const sexualQuestionDelay =
+      9500;
+
+
+    /*
+      Wait until the ????? has appeared,
+      then let it sit there for 2 seconds...
+    */
 
     setTimeout(
       function() {
 
-        errorPopup.classList.add("show");
+        sexualQuestion.classList.add(
+          "show"
+        );
 
       },
-      7000
+      sexualQuestionDelay
+    );
+
+
+    /*
+      Change ????? into the overheating error.
+    */
+
+    setTimeout(
+      function() {
+
+        sexualQuestion.style.display =
+          "none";
+
+        sexualError.style.display =
+          "block";
+
+        sexualError.classList.add(
+          "show"
+        );
+
+      },
+      sexualQuestionDelay + 2500
+    );
+
+
+    /* -----------------------------------------------
+       ERROR POPUP
+       
+       IMPORTANT:
+       The popup waits until the ENTIRE scan
+       has finished, THEN waits another 7 seconds.
+    ----------------------------------------------- */
+
+    const scanFinished =
+      sexualQuestionDelay + 2500;
+
+
+    const sevenSeconds =
+      7000;
+
+
+    setTimeout(
+      function() {
+
+        errorPopup.classList.add(
+          "show"
+        );
+
+      },
+      scanFinished + sevenSeconds
     );
 
   }
 );
 
 
-/* =========================
+/* =====================================================
    ERROR → EXPLOSION
-========================= */
+===================================================== */
 
 errorBtn.addEventListener(
   "click",
@@ -1549,42 +2510,64 @@ errorBtn.addEventListener(
 
     /* Hide popup */
 
-    errorPopup.classList.remove("show");
+    errorPopup.classList.remove(
+      "show"
+    );
 
 
-    /* Go to explosion */
+    /* Show explosion */
 
     showScene(scene4);
 
 
     const explosion =
-      document.getElementById("explosion");
+      document.getElementById(
+        "explosion"
+      );
 
     const boomText =
-      document.querySelector(".boom-text");
+      document.querySelector(
+        ".boom-text"
+      );
 
 
     /* Restart animations */
 
-    explosion.classList.remove("go");
+    explosion.classList.remove(
+      "go"
+    );
 
-    boomText.classList.remove("show");
+    boomText.classList.remove(
+      "show"
+    );
+
 
     void explosion.offsetWidth;
 
-    explosion.classList.add("go");
 
-    boomText.classList.add("show");
+    explosion.classList.add(
+      "go"
+    );
+
+    boomText.classList.add(
+      "show"
+    );
 
 
-    /* Return to beginning */
+    /* -----------------------------------------------
+       RETURN TO BEGINNING
+    ----------------------------------------------- */
 
     setTimeout(
       function() {
 
-        explosion.classList.remove("go");
+        explosion.classList.remove(
+          "go"
+        );
 
-        boomText.classList.remove("show");
+        boomText.classList.remove(
+          "show"
+        );
 
         showScene(scene1);
 
