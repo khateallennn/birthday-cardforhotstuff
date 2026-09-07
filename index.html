@@ -788,6 +788,11 @@ button {
 <body>
 
 
+<!-- NIKI SONG -->
+
+<audio id="birthdaySong" src="niki.mp3" preload="auto"></audio>
+
+
 <!-- =========================
      SCENE 1
 ========================= -->
@@ -886,7 +891,6 @@ button {
 
   <div class="alien-area">
 
-    <!-- messy hair -->
     <div class="hair">
       <span></span>
       <span></span>
@@ -1099,6 +1103,14 @@ const sexualError =
 
 
 /* =========================
+   NIKI SONG
+========================= */
+
+const birthdaySong =
+  document.getElementById("birthdaySong");
+
+
+/* =========================
    CHANGE SCENE
 ========================= */
 
@@ -1225,6 +1237,10 @@ function startScan() {
 ========================= */
 
 secretBtn.onclick = function() {
+
+  /* START NIKI IMMEDIATELY */
+  birthdaySong.currentTime = 0;
+  birthdaySong.play();
 
   showScene(scene3);
 
