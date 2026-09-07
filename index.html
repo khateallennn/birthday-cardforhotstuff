@@ -1,968 +1,947 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Happy Birthday Hot Stuff! </title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: #050510;
-      color: white;
-      font-family: "Courier New", monospace;
-      overflow-x: hidden;
-    }
-
-    button {
-      font-family: "Courier New", monospace;
-      cursor: pointer;
-    }
-
-    /* =========================
-       GENERAL SCENES
-    ========================= */
-
-    .scene {
-      min-height: 100vh;
-      width: 100%;
-      display: none;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .scene.active {
-      display: flex;
-    }
-
-    /* =========================
-       STARS
-    ========================= */
-
-    .stars {
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(white 1px, transparent 1px);
-      background-size: 70px 70px, 110px 110px;
-      background-position: 0 0, 30px 40px;
-      opacity: 0.45;
-      pointer-events: none;
-    }
-
-    /* =========================
-       SCENE 1
-    ========================= */
-
-    #scene1 {
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background:
-        radial-gradient(circle at center, #17173b 0%, #070716 45%, #020208 100%);
-    }
-
-    .opening {
-      position: relative;
-      z-index: 2;
-      padding: 30px;
-      max-width: 700px;
-    }
-
-    .alien-opening {
-      font-size: 80px;
-      margin-bottom: 25px;
-      animation: floatAlien 3s ease-in-out infinite;
-    }
-
-    @keyframes floatAlien {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-12px);
-      }
-    }
-
-    .opening h1 {
-      font-size: clamp(24px, 5vw, 42px);
-      font-weight: normal;
-      letter-spacing: 3px;
-      margin: 0 0 15px;
-    }
-
-    .opening p {
-      font-size: clamp(14px, 3vw, 18px);
-      color: #c8c8e8;
-      margin-bottom: 40px;
-    }
-
-    .open-button {
-      background: transparent;
-      color: white;
-      border: 1px solid white;
-      padding: 15px 28px;
-      font-size: 15px;
-      letter-spacing: 2px;
-      transition: 0.3s;
-    }
-
-    .open-button:hover {
-      background: white;
-      color: #050510;
-      transform: scale(1.05);
-    }
-
-    /* =========================
-       SCENE 2
-    ========================= */
-
-    #scene2 {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background:
-        radial-gradient(circle at top, #171735, #050510 65%);
-      padding: 70px 20px;
-      min-height: 100vh;
-    }
-
-    #scene2.active {
-      display: flex;
-    }
-
-    .meme-container {
-      position: relative;
-      z-index: 2;
-      width: min(850px, 95%);
-      display: flex;
-      justify-content: center;
-      margin-bottom: 70px;
-    }
-
-    .meme-container img {
-      display: block;
-      width: 100%;
-      max-width: 850px;
-      height: auto;
-      border-radius: 6px;
-    }
-
-    /* =========================
-       MESSAGE CARD
-    ========================= */
-
-    .message-card {
-      position: relative;
-      z-index: 2;
-
-      width: min(700px, 92%);
-      background: #f7eee2;
-      color: #171717;
-
-      padding: 45px 40px;
-      border-radius: 8px;
-
-      box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.5);
-
-      transform: rotate(-1deg);
-
-      margin-bottom: 80px;
-    }
-
-    .message-card::before {
-      content: "✦";
-      position: absolute;
-      top: 15px;
-      left: 20px;
-      font-size: 20px;
-    }
-
-    .message-card::after {
-      content: "★";
-      position: absolute;
-      bottom: 15px;
-      right: 20px;
-      font-size: 18px;
-    }
-
-    .message-card h2 {
-      font-size: clamp(22px, 5vw, 32px);
-      text-align: center;
-      margin-top: 5px;
-      margin-bottom: 30px;
-    }
-
-    .message-card p {
-      font-size: 15px;
-      line-height: 1.8;
-      margin: 0 0 20px;
-    }
-
-    .message-card .good-things {
-      text-align: center;
-      line-height: 2;
-      margin: 25px 0;
-    }
-
-    .message-button {
-      text-align: center;
-      margin-top: 35px;
-    }
-
-    .message-button button {
-      background: #171717;
-      color: white;
-      border: none;
-      padding: 14px 22px;
-      font-size: 13px;
-      letter-spacing: 1px;
-      transition: 0.3s;
-    }
-
-    .message-button button:hover {
-      transform: scale(1.05);
-    }
-
-    /* =========================
-       SCENE 3
-    ========================= */
-
-    #scene3 {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      background:
-        radial-gradient(circle at center, #101a18, #030706 70%);
-      padding: 60px 20px;
-      min-height: 100vh;
-    }
-
-    #scene3.active {
-      display: flex;
-    }
-
-    /* =========================
-       ALIEN
-    ========================= */
-
-    .alien-container {
-      position: relative;
-      z-index: 2;
-      width: 260px;
-      height: 310px;
-      margin-bottom: 30px;
-    }
-
-    .alien {
-      position: absolute;
-      left: 50%;
-      top: 20px;
-      transform: translateX(-50%);
-      width: 150px;
-      height: 190px;
-    }
-
-    .alien-head {
-      position: absolute;
-      top: 0;
-      left: 15px;
-      width: 120px;
-      height: 105px;
-      background: #72d66d;
-      border-radius: 50% 50% 45% 45%;
-      border: 3px solid #3c9639;
-    }
-
-    .alien-eye {
-      position: absolute;
-      width: 30px;
-      height: 42px;
-      background: #2789d9;
-      border-radius: 50%;
-      top: 30px;
-    }
-
-    .alien-eye.left {
-      left: 28px;
-    }
-
-    .alien-eye.right {
-      right: 28px;
-    }
-
-    .alien-eye::after {
-      content: "";
-      position: absolute;
-      width: 10px;
-      height: 15px;
-      background: white;
-      border-radius: 50%;
-      top: 7px;
-      left: 8px;
-    }
-
-    .alien-mouth {
-      position: absolute;
-      width: 35px;
-      height: 12px;
-      border-bottom: 3px solid #277327;
-      border-radius: 50%;
-      left: 42px;
-      bottom: 18px;
-    }
-
-    .alien-body {
-      position: absolute;
-      top: 95px;
-      left: 27px;
-      width: 100px;
-      height: 95px;
-      background: #e98ab3;
-      border-radius: 20px 20px 10px 10px;
-    }
-
-    .alien-collar {
-      position: absolute;
-      top: 92px;
-      left: 52px;
-      width: 50px;
-      height: 20px;
-      border-left: 3px solid white;
-      border-right: 3px solid white;
-    }
-
-    .alien-arm {
-      position: absolute;
-      width: 25px;
-      height: 75px;
-      background: #72d66d;
-      border-radius: 20px;
-      top: 105px;
-    }
-
-    .alien-arm.left {
-      left: 8px;
-      transform: rotate(25deg);
-    }
-
-    .alien-arm.right {
-      right: 8px;
-      transform: rotate(-30deg);
-    }
-
-    .alien-leg {
-      position: absolute;
-      width: 35px;
-      height: 80px;
-      background: #111;
-      border-radius: 10px;
-      top: 175px;
-    }
-
-    .alien-leg.left {
-      left: 35px;
-    }
-
-    .alien-leg.right {
-      right: 35px;
-    }
-
-    .alien-sock {
-      position: absolute;
-      width: 38px;
-      height: 20px;
-      background: white;
-      border-radius: 4px;
-      top: 235px;
-    }
-
-    .alien-sock.left {
-      left: 33px;
-    }
-
-    .alien-sock.right {
-      right: 33px;
-    }
-
-    .alien-sock::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 8px;
-      height: 4px;
-      background: #72d66d;
-    }
-
-    .football {
-      position: absolute;
-      font-size: 38px;
-      right: 5px;
-      top: 180px;
-      animation: footballBounce 1s ease-in-out infinite alternate;
-    }
-
-    @keyframes footballBounce {
-      from {
-        transform: translateY(0) rotate(-10deg);
-      }
-
-      to {
-        transform: translateY(-15px) rotate(10deg);
-      }
-    }
-
-    /* =========================
-       SECRET BOX
-    ========================= */
-
-    .secret-box {
-      position: relative;
-      z-index: 2;
-
-      width: min(700px, 95%);
-
-      border: 1px solid #72d66d;
-      background: rgba(0, 20, 10, 0.75);
-
-      padding: 30px;
-
-      box-shadow:
-        0 0 25px rgba(114, 214, 109, 0.15);
-
-      min-height: 500px;
-    }
-
-    .secret-title {
-      text-align: center;
-      color: #72d66d;
-      font-size: clamp(17px, 4vw, 24px);
-      letter-spacing: 2px;
-      margin-bottom: 25px;
-    }
-
-    .scan-line {
-      width: 100%;
-      height: 2px;
-      background: #72d66d;
-      box-shadow: 0 0 10px #72d66d;
-      margin-bottom: 25px;
-      animation: scanMove 2s linear infinite;
-    }
-
-    @keyframes scanMove {
-      0% {
-        opacity: 0.2;
-      }
-
-      50% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0.2;
-      }
-    }
-
-    .scan-info {
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .scan-item {
-      opacity: 0;
-      margin-bottom: 8px;
-      color: #a7eaa3;
-    }
-
-    .scan-item.show {
-      animation: scanAppear 0.5s forwards;
-    }
-
-    @keyframes scanAppear {
-      from {
-        opacity: 0;
-        transform: translateX(-10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .scan-item span {
-      color: white;
-    }
-
-    .scan-item.handsome {
-      font-size: 18px;
-      margin-top: 12px;
-    }
-
-    .scan-item.sexual {
-      margin-top: 12px;
-      color: #ff9ac2;
-      font-size: 16px;
-    }
-
-    .sexual-error {
-      color: #ff4f6d;
-    }
-
-    /* =========================
-       ERROR POPUP
-    ========================= */
-
-    .error-popup {
-      display: none;
-
-      position: fixed;
-      z-index: 100;
-
-      left: 50%;
-      top: 50%;
-
-      transform: translate(-50%, -50%);
-
-      width: min(500px, 90%);
-
-      background: #100008;
-
-      border: 3px solid #ff304f;
-
-      padding: 35px;
-
-      text-align: center;
-
-      box-shadow:
-        0 0 40px rgba(255, 48, 79, 0.5);
-    }
-
-    .error-popup.active {
-      display: block;
-      animation: popupIn 0.4s ease;
-    }
-
-    @keyframes popupIn {
-      from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-      }
-
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
-    }
-
-    .error-title {
-      color: #ff304f;
-      font-size: 24px;
-      margin-bottom: 25px;
-      font-weight: bold;
-    }
-
-    .error-popup p {
-      color: #ffb4be;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .error-button {
-      margin-top: 20px;
-      background: #ff304f;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .error-button:hover {
-      transform: scale(1.05);
-    }
-
-    /* =========================
-       SCENE 4
-    ========================= */
-
-    #scene4 {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      background: #000;
-    }
-
-    #scene4.active {
-      display: flex;
-    }
-
-    .explosion {
-      font-size: 150px;
-      animation: explosion 1.8s ease forwards;
-    }
-
-    @keyframes explosion {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-
-      30% {
-        transform: scale(1.2);
-        opacity: 1;
-      }
-
-      100% {
-        transform: scale(2.5);
-        opacity: 0;
-      }
-    }
-
-    .boom-text {
-      font-size: 25px;
-      letter-spacing: 5px;
-      animation: boomText 1.8s ease forwards;
-    }
-
-    @keyframes boomText {
-      0% {
-        opacity: 0;
-      }
-
-      30% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 600px) {
-
-      .opening {
-        padding: 20px;
-      }
-
-      .alien-opening {
-        font-size: 65px;
-      }
-
-      #scene2 {
-        padding: 40px 12px;
-      }
-
-      .message-card {
-        padding: 35px 25px;
-      }
-
-      .message-card p {
-        font-size: 13px;
-      }
-
-      #scene3 {
-        padding: 40px 12px;
-      }
-
-      .secret-box {
-        padding: 20px;
-      }
-
-      .scan-info {
-        font-size: 12px;
-      }
-
-      .alien-container {
-        transform: scale(0.85);
-        margin-top: -20px;
-        margin-bottom: 5px;
-      }
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Hot Stuff</title>
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #09051a;
+  color: white;
+  font-family: "Courier New", monospace;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: "Courier New", monospace;
+  cursor: pointer;
+}
+
+
+/* =========================
+   SCENES
+========================= */
+
+.scene {
+  display: none !important;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.scene.active {
+  display: flex !important;
+}
+
+
+/* =========================
+   SCENE 1
+========================= */
+
+#scene1 {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  background:
+    radial-gradient(circle at 20% 20%, #33205d 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 30%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 40% 75%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 85% 80%, #33205d 0 2px, transparent 3px),
+    #09051a;
+}
+
+.transmission-alien {
+  font-size: 80px;
+  margin-bottom: 25px;
+  animation: floatAlien 2s ease-in-out infinite;
+}
+
+@keyframes floatAlien {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+#scene1 h1 {
+  font-size: clamp(24px, 5vw, 42px);
+  margin: 10px 20px;
+}
+
+#scene1 p {
+  font-size: clamp(14px, 3vw, 19px);
+  opacity: 0.8;
+  margin-bottom: 35px;
+}
+
+.main-button {
+  background: #ffffff;
+  color: #09051a;
+  border: none;
+  border-radius: 30px;
+  padding: 15px 25px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.main-button:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   SCENE 2
+========================= */
+
+#scene2 {
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 80px;
+
+  background:
+    radial-gradient(circle at 10% 20%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 90% 15%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 30% 80%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 75% 70%, #ffffff 0 1px, transparent 2px),
+    #09051a;
+}
+
+.meme {
+  width: min(90vw, 650px);
+  height: auto;
+  display: block;
+  margin-bottom: 70px;
+  border-radius: 5px;
+}
+
+.birthday-card {
+  position: relative;
+  width: min(90vw, 650px);
+  background: #f7eee2;
+  color: #1e1825;
+  padding: 45px 35px 50px;
+  border-radius: 12px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.4);
+  transform: rotate(-1deg);
+  line-height: 1.7;
+}
+
+.birthday-card::before,
+.birthday-card::after {
+  content: "✦";
+  position: absolute;
+  font-size: 25px;
+}
+
+.birthday-card::before {
+  top: 15px;
+  left: 20px;
+}
+
+.birthday-card::after {
+  bottom: 15px;
+  right: 20px;
+}
+
+.birthday-card h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: clamp(24px, 5vw, 34px);
+}
+
+.birthday-card p {
+  font-size: 15px;
+}
+
+.good-things {
+  margin: 25px 0;
+  padding-left: 20px;
+}
+
+.good-things div {
+  margin: 5px 0;
+}
+
+.card-ending {
+  margin-top: 30px;
+}
+
+.secret-button-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.secret-button {
+  background: #171021;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 14px 23px;
+  font-family: "Courier New", monospace;
+  transition: 0.2s;
+}
+
+.secret-button:hover {
+  transform: scale(1.05);
+}
+
+
+/* =========================
+   SCENE 3
+========================= */
+
+#scene3 {
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 35px 20px 80px;
+
+  background:
+    radial-gradient(circle at 20% 20%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 30%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 40% 70%, #ffffff 0 1px, transparent 2px),
+    radial-gradient(circle at 90% 80%, #ffffff 0 1px, transparent 2px),
+    #09051a;
+}
+
+.secret-title {
+  font-size: clamp(18px, 4vw, 28px);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+
+/* =========================
+   CUTE ALIEN
+========================= */
+
+.alien-area {
+  width: 260px;
+  height: 310px;
+  position: relative;
+  margin: 0 auto 20px;
+}
+
+
+/* HEAD */
+
+.alien-head {
+  position: absolute;
+  width: 170px;
+  height: 185px;
+  background: #73bd3f;
+  border: 4px solid #d8f2c7;
+  border-radius: 50% 50% 46% 46%;
+  left: 45px;
+  top: 5px;
+  z-index: 5;
+
+  box-shadow:
+    inset -15px -8px 0 rgba(0,0,0,0.05),
+    0 8px 20px rgba(0,0,0,0.25);
+}
+
+
+/* little head shine */
+
+.alien-head::before {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 13px;
+  background: rgba(255,255,255,0.55);
+  border-radius: 50%;
+  transform: rotate(-35deg);
+  top: 27px;
+  left: 30px;
+}
+
+
+/* EYES */
+
+.alien-eye {
+  position: absolute;
+  width: 42px;
+  height: 68px;
+  background: #111111;
+  border-radius: 50%;
+  top: 65px;
+}
+
+.alien-eye.left {
+  left: 25px;
+}
+
+.alien-eye.right {
+  right: 25px;
+}
+
+
+/* BLUE EYE GLOW */
+
+.alien-eye::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 20px;
+  background: #63c9ff;
+  border-radius: 50%;
+  top: 22px;
+  left: 14px;
+  box-shadow: 0 0 8px #63c9ff;
+}
+
+
+/* EYE HIGHLIGHT */
+
+.alien-eye::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  top: 12px;
+  left: 9px;
+}
+
+
+/* MOUTH */
+
+.alien-mouth {
+  position: absolute;
+  width: 10px;
+  height: 7px;
+  border-bottom: 3px solid #173d18;
+  border-radius: 0 0 50% 50%;
+  left: 77px;
+  bottom: 35px;
+}
+
+
+/* BODY */
+
+.alien-body {
+  position: absolute;
+  width: 75px;
+  height: 80px;
+  background: #73bd3f;
+  border-radius: 35px 35px 20px 20px;
+  left: 92px;
+  top: 175px;
+  z-index: 3;
+}
+
+
+/* PINK POLO */
+
+.polo {
+  position: absolute;
+  width: 75px;
+  height: 55px;
+  background: #f28ca8;
+  border-radius: 25px 25px 12px 12px;
+  left: 0;
+  top: 5px;
+  overflow: hidden;
+}
+
+
+/* collar */
+
+.polo::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  background: #f8c1d0;
+  left: 22px;
+  top: -4px;
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+
+
+/* polo buttons */
+
+.polo::after {
+  content: "•\A •";
+  white-space: pre;
+  position: absolute;
+  font-size: 8px;
+  line-height: 13px;
+  top: 17px;
+  left: 37px;
+  color: #822d47;
+}
+
+
+/* ARMS */
+
+.alien-arm {
+  position: absolute;
+  width: 17px;
+  height: 85px;
+  background: #73bd3f;
+  border-radius: 20px;
+  top: 180px;
+  z-index: 2;
+}
+
+.alien-arm.left {
+  left: 76px;
+  transform: rotate(18deg);
+}
+
+.alien-arm.right {
+  left: 160px;
+  transform: rotate(-30deg);
+}
+
+
+/* hands */
+
+.alien-arm::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  background: #73bd3f;
+  border-radius: 50%;
+  bottom: -8px;
+  left: -4px;
+}
+
+
+/* PANTS */
+
+.pants {
+  position: absolute;
+  width: 72px;
+  height: 55px;
+  background: #17171b;
+  left: 94px;
+  top: 235px;
+  z-index: 4;
+  border-radius: 4px 4px 12px 12px;
+}
+
+.pants::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 55px;
+  background: #34343a;
+  left: 34px;
+  top: 0;
+}
+
+
+/* LEGS */
+
+.leg {
+  position: absolute;
+  width: 25px;
+  height: 52px;
+  background: #73bd3f;
+  top: 270px;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.leg.left {
+  left: 95px;
+}
+
+.leg.right {
+  left: 140px;
+}
+
+
+/* SOCKS */
+
+.sock {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  background: white;
+  border-radius: 5px;
+  top: 315px;
+  z-index: 4;
+}
+
+.sock.left {
+  left: 94px;
+}
+
+.sock.right {
+  left: 138px;
+}
+
+
+/* GREEN SOCK STRIPES */
+
+.sock::before,
+.sock::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #4eaa52;
+}
+
+.sock::before {
+  top: 7px;
+}
+
+.sock::after {
+  top: 14px;
+}
+
+
+/* FOOTBALL */
+
+.football {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border: 3px solid #17171b;
+  border-radius: 50%;
+  right: 10px;
+  bottom: 15px;
+  z-index: 8;
+
+  animation: footballFloat 1.2s ease-in-out infinite;
+}
+
+
+/* football pattern */
+
+.football::before {
+  content: "⬟";
+  position: absolute;
+  color: #17171b;
+  font-size: 18px;
+  left: 12px;
+  top: 10px;
+}
+
+.football::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 25px;
+  background: #17171b;
+  left: 22px;
+  top: 5px;
+  transform: rotate(45deg);
+}
+
+@keyframes footballFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(12deg);
+  }
+}
+
+
+/* =========================
+   SCAN
+========================= */
+
+.scan-box {
+  width: min(90vw, 650px);
+  margin-top: 10px;
+  border: 1px solid #73bd3f;
+  padding: 20px;
+  background: rgba(0,0,0,0.35);
+  box-shadow: 0 0 20px rgba(115,189,63,0.15);
+}
+
+.scan-item {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: 0.4s ease;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.scan-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scan-green {
+  color: #73bd3f;
+}
+
+.scan-hot {
+  color: #ff91a4;
+}
+
+
+/* =========================
+   ERROR POPUP
+========================= */
+
+.error-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.error-popup.active {
+  display: flex;
+}
+
+.error-box {
+  width: min(90vw, 500px);
+  background: #140a1e;
+  border: 2px solid #ff4568;
+  box-shadow: 0 0 35px rgba(255,69,104,0.4);
+  padding: 30px;
+  text-align: center;
+}
+
+.error-box h2 {
+  color: #ff4568;
+  margin-top: 0;
+}
+
+.error-box p {
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.error-button {
+  margin-top: 20px;
+  padding: 13px 22px;
+  background: #ff4568;
+  border: none;
+  color: white;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+
+/* =========================
+   SCENE 4
+========================= */
+
+#scene4 {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: #09051a;
+}
+
+.explosion {
+  font-size: 100px;
+  animation: explode 0.5s infinite alternate;
+}
+
+#scene4 h1 {
+  font-size: clamp(30px, 8vw, 60px);
+}
+
+@keyframes explode {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.15);
+  }
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- =========================
-       SCENE 1 — OPENING
-  ========================== -->
 
-  <section id="scene1" class="scene active">
+<!-- =========================
+     SCENE 1
+========================= -->
 
-    <div class="stars"></div>
+<section id="scene1" class="scene active">
 
-    <div class="opening">
+  <div class="transmission-alien">👽</div>
 
-      <div class="alien-opening">👽</div>
+  <h1>A transmission has arrived...</h1>
 
-      <h1>A transmission has arrived...</h1>
+  <p>From somewhere in the universe 🛸</p>
 
-      <p>From somewhere in the universe. 🛸</p>
+  <button id="openBtn" class="main-button">
+    OPEN TRANSMISSION
+  </button>
 
-      <button id="openBtn" class="open-button">
-        OPEN TRANSMISSION
+</section>
+
+
+
+<!-- =========================
+     SCENE 2
+========================= -->
+
+<section id="scene2" class="scene">
+
+  <img
+    class="meme"
+    src="https://www.grouptogether.com/assets/images/ronburgandymeme.avif?v=1727814538"
+    alt="Birthday meme"
+  >
+
+  <div class="birthday-card">
+
+    <h2>Happy birthday hot stuff</h2>
+
+    <p>
+      Congratulations on completing another solar cycle.
+    </p>
+
+    <p>
+      It's crazy how there are more than 8 billion people in this planet,
+      and our paths crossed.
+    </p>
+
+    <p>
+      I'm glad they did.
+    </p>
+
+    <p>
+      I hope this year brings you plenty of good things..
+    </p>
+
+    <div class="good-things">
+      <div>good music</div>
+      <div>good people</div>
+      <div>good food</div>
+      <div>good luck</div>
+      <div>And, whatever good there is in this world :)</div>
+    </div>
+
+    <p>
+      You deserve all the love and happiness in the universe!
+    </p>
+
+    <p class="card-ending">
+      Hope this made you smile :)
+    </p>
+
+    <div class="secret-button-container">
+
+      <button id="secretBtn" class="secret-button">
+        MORE NERD STUFF?
       </button>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- =========================
-       SCENE 2 — BIRTHDAY
-  ========================== -->
 
-  <section id="scene2" class="scene">
+<!-- =========================
+     SCENE 3
+========================= -->
 
-    <div class="stars"></div>
+<section id="scene3" class="scene">
 
-    <div class="meme-container">
-
-      <img
-        src="https://www.grouptogether.com/assets/images/ronburgandymeme.avif?v=1727814538"
-        alt="Birthday meme"
-      >
-
-    </div>
+  <h2 class="secret-title">
+    MORE TRANSMISSION UNLOCKED
+  </h2>
 
 
-    <div class="message-card">
+  <!-- ALIEN -->
 
-      <h2>Happy Birthday, Liam! 💖</h2>
+  <div class="alien-area">
 
-      <p>
-        Congratulations on completing another solar cycle.
-      </p>
+    <div class="alien-head">
 
-      <p>
-        It's crazy how there are more than 8 billion people in this planet,
-        and our paths crossed.
-      </p>
+      <div class="alien-eye left"></div>
+      <div class="alien-eye right"></div>
 
-      <p>
-        I'm glad they did.
-      </p>
-
-      <p>
-        I hope this year brings you plenty of good things..
-      </p>
-
-      <p class="good-things">
-        Good music.<br>
-        Good people.<br>
-        Good food.<br>
-        Good luck.<br>
-        And whatever good there is in this world.<br>
-        And, of course, good love :)
-      </p>
-
-      <p>
-        You deserve all the love and happiness in the universe!
-      </p>
-
-      <p>
-        Hope this made you smile :)
-      </p>
-
-      <div class="message-button">
-
-        <button id="secretBtn">
-          MORE NERD STUFF?
-        </button>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       SCENE 3 — SECRET SCAN
-  ========================== -->
-
-  <section id="scene3" class="scene">
-
-    <div class="stars"></div>
-
-
-    <!-- ALIEN -->
-
-    <div class="alien-container">
-
-      <div class="alien">
-
-        <div class="alien-head">
-
-          <div class="alien-eye left"></div>
-          <div class="alien-eye right"></div>
-
-          <div class="alien-mouth"></div>
-
-        </div>
-
-        <div class="alien-body"></div>
-
-        <div class="alien-collar"></div>
-
-        <div class="alien-arm left"></div>
-        <div class="alien-arm right"></div>
-
-        <div class="alien-leg left"></div>
-        <div class="alien-leg right"></div>
-
-        <div class="alien-sock left"></div>
-        <div class="alien-sock right"></div>
-
-        <div class="football">⚽</div>
-
-      </div>
+      <div class="alien-mouth"></div>
 
     </div>
 
 
-    <!-- SECRET TRANSMISSION -->
+    <div class="alien-arm left"></div>
+    <div class="alien-arm right"></div>
 
-    <div id="secretBox" class="secret-box">
 
-      <div class="secret-title">
-        SECRET TRANSMISSION UNLOCKED
-      </div>
+    <div class="alien-body">
 
-      <div class="scan-line"></div>
-
-      <div class="scan-info">
-
-        <div class="scan-item" data-delay="500">
-          Scan complete
-        </div>
-
-        <div class="scan-item" data-delay="1100">
-          <span>Name:</span> Liam James Richards
-        </div>
-
-        <div class="scan-item" data-delay="1700">
-          <span>Place of birth:</span>
-          Chelmsford, Essex, England
-        </div>
-
-        <div class="scan-item" data-delay="2300">
-          <span>Date of birth:</span>
-          September 8, 1990
-        </div>
-
-        <div class="scan-item" data-delay="2900">
-          <span>Time of birth:</span>
-          12:24 AM
-        </div>
-
-        <div class="scan-item" data-delay="3500">
-          <span>Zodiac sign:</span> Virgo
-        </div>
-
-        <div class="scan-item" data-delay="4100">
-          <span>Brain activity:</span> QUESTIONABLE
-        </div>
-
-        <div class="scan-item" data-delay="4700">
-          <span>Dad jokes:</span> DETECTED
-        </div>
-
-        <div class="scan-item" data-delay="5300">
-          <span>Sarcasm levels:</span> DANGEROUS
-        </div>
-
-        <div class="scan-item" data-delay="5900">
-          <span>Probability of being trouble:</span>
-          99.9%
-        </div>
-
-        <div class="scan-item" data-delay="6500">
-          <span>Overall hotness:</span>
-          SYSTEM CANNOT COMPUTE
-        </div>
-
-        <div class="scan-item" data-delay="7100">
-          <span>Threat level:</span> HOT
-        </div>
-
-        <div class="scan-item" data-delay="7700">
-          <span>Music taste:</span> REALLY GOOD
-        </div>
-
-        <div class="scan-item handsome" data-delay="8300">
-          <span>Handsome:</span> YES
-        </div>
-
-        <div class="scan-item" data-delay="8900">
-          <span>Compatibility with me:</span> YES
-        </div>
-
-        <div
-          id="sexualQuestion"
-          class="scan-item sexual"
-          data-delay="9500"
-        >
-          <span>Sexual Tension:</span> ?????
-        </div>
-
-        <div
-          id="sexualError"
-          class="scan-item sexual"
-          style="display:none;"
-        >
-          <span>Sexual Tension:</span>
-          <strong class="sexual-error">
-            ERROR - SYSTEM OVERHEATING
-          </strong>
-        </div>
-
-      </div>
+      <div class="polo"></div>
 
     </div>
 
-  </section>
+
+    <div class="pants"></div>
+
+    <div class="leg left"></div>
+    <div class="leg right"></div>
+
+    <div class="sock left"></div>
+    <div class="sock right"></div>
+
+    <div class="football"></div>
+
+  </div>
 
 
-  <!-- =========================
-       ERROR POPUP
-  ========================== -->
+  <!-- SCAN -->
 
-  <div id="errorPopup" class="error-popup">
+  <div class="scan-box">
 
-    <div class="error-title">
-      ⚠ SYSTEM ERROR ⚠
+    <div class="scan-item scan-green" data-delay="500">
+      Scan complete
     </div>
+
+    <div class="scan-item" data-delay="1100">
+      Name: Liam James Richards
+    </div>
+
+    <div class="scan-item" data-delay="1700">
+      Place of birth: Chelmsford, Essex, England
+    </div>
+
+    <div class="scan-item" data-delay="2300">
+      Date of birth: September 8, 1990
+    </div>
+
+    <div class="scan-item" data-delay="2900">
+      Time of birth: 12:24 AM
+    </div>
+
+    <div class="scan-item" data-delay="3500">
+      Zodiac sign: Virgo
+    </div>
+
+    <div class="scan-item" data-delay="4100">
+      Brain activity: QUESTIONABLE
+    </div>
+
+    <div class="scan-item" data-delay="4700">
+      Dad jokes: DETECTED
+    </div>
+
+    <div class="scan-item" data-delay="5300">
+      Sarcasm levels: DANGEROUS
+    </div>
+
+    <div class="scan-item" data-delay="5900">
+      Probability of being trouble: 99.9%
+    </div>
+
+    <div class="scan-item" data-delay="6500">
+      Overall hotness: SYSTEM CANNOT COMPUTE
+    </div>
+
+    <div class="scan-item" data-delay="7100">
+      Threat level: HOT
+    </div>
+
+    <div class="scan-item" data-delay="7700">
+      Music taste: REALLY GOOD
+    </div>
+
+    <div class="scan-item" data-delay="8300">
+      Handsome: YES
+    </div>
+
+    <div class="scan-item" data-delay="8900">
+      Compatibility with me: YES
+    </div>
+
+    <div
+      id="sexualQuestion"
+      class="scan-item scan-hot"
+      data-delay="9500"
+    >
+      Sexual Tension: ?????
+    </div>
+
+    <div
+      id="sexualError"
+      class="scan-item scan-hot"
+    >
+      Sexual Tension: ERROR - SYSTEM OVERHEATING
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =========================
+     ERROR POPUP
+========================= -->
+
+<div id="errorPopup" class="error-popup">
+
+  <div class="error-box">
+
+    <h2>⚠ SYSTEM ERROR ⚠</h2>
 
     <p>
-      WARNING:<br>
+      WARNING:
+    </p>
+
+    <p>
       UNAUTHORIZED LEVELS OF CHEMISTRY DETECTED.
-      <br><br>
+    </p>
+
+    <p>
       ALIEN SYSTEMS ARE OVERHEATING.
-      <br><br>
+    </p>
+
+    <p>
       PLEASE PRESS ERROR TO CONTINUE.
     </p>
 
@@ -972,227 +951,208 @@
 
   </div>
 
+</div>
 
-  <!-- =========================
-       SCENE 4 — EXPLOSION
-  ========================== -->
 
-  <section id="scene4" class="scene">
 
-    <div class="stars"></div>
+<!-- =========================
+     SCENE 4
+========================= -->
 
-    <div id="explosion" class="explosion">
-      💥
-    </div>
+<section id="scene4" class="scene">
 
-    <p class="boom-text">
-      SYSTEM FAILURE
-    </p>
+  <div class="explosion">
+    💥
+  </div>
 
-  </section>
+  <h1>SYSTEM FAILURE</h1>
 
+</section>
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
 
-  <script>
 
-    /* =========================
-       GET SCENES
-    ========================== */
+<script>
 
-    const scene1 = document.getElementById("scene1");
-    const scene2 = document.getElementById("scene2");
-    const scene3 = document.getElementById("scene3");
-    const scene4 = document.getElementById("scene4");
+/* =========================
+   SCENES
+========================= */
 
-    const openBtn = document.getElementById("openBtn");
-    const secretBtn = document.getElementById("secretBtn");
+const scene1 = document.getElementById("scene1");
+const scene2 = document.getElementById("scene2");
+const scene3 = document.getElementById("scene3");
+const scene4 = document.getElementById("scene4");
 
-    const errorPopup = document.getElementById("errorPopup");
-    const errorBtn = document.getElementById("errorBtn");
 
-    const sexualQuestion =
-      document.getElementById("sexualQuestion");
+const openBtn = document.getElementById("openBtn");
+const secretBtn = document.getElementById("secretBtn");
 
-    const sexualError =
-      document.getElementById("sexualError");
+const errorPopup = document.getElementById("errorPopup");
+const errorBtn = document.getElementById("errorBtn");
 
+const sexualQuestion =
+  document.getElementById("sexualQuestion");
 
-    /* =========================
-       SCENE SWITCHER
-    ========================== */
+const sexualError =
+  document.getElementById("sexualError");
 
-    function showScene(scene) {
 
-      scene1.classList.remove("active");
-      scene2.classList.remove("active");
-      scene3.classList.remove("active");
-      scene4.classList.remove("active");
+/* =========================
+   CHANGE SCENE
+========================= */
 
-      scene.classList.add("active");
+function showScene(scene) {
 
-      window.scrollTo({
-        top: 0,
-        behavior: "instant"
-      });
+  scene1.classList.remove("active");
+  scene2.classList.remove("active");
+  scene3.classList.remove("active");
+  scene4.classList.remove("active");
 
-    }
+  scene.classList.add("active");
 
+  window.scrollTo(0, 0);
+}
 
-    /* =========================
-       OPEN TRANSMISSION
-    ========================== */
 
-    openBtn.addEventListener("click", function() {
+/* =========================
+   OPEN TRANSMISSION
+========================= */
 
-      showScene(scene2);
+openBtn.onclick = function() {
 
-    });
+  showScene(scene2);
 
+};
 
-    /* =========================
-       MORE NERD STUFF
-    ========================== */
 
-    secretBtn.addEventListener("click", function() {
+/* =========================
+   SCAN SYSTEM
+========================= */
 
-      showScene(scene3);
+let scanTimers = [];
 
-      startScan();
 
-    });
+function clearScanTimers() {
 
+  scanTimers.forEach(function(timer) {
+    clearTimeout(timer);
+  });
 
-    /* =========================
-       SCAN SYSTEM
-    ========================== */
+  scanTimers = [];
 
-    let scanTimers = [];
+}
 
-    function clearScanTimers() {
 
-      scanTimers.forEach(function(timer) {
-        clearTimeout(timer);
-      });
+function startScan() {
 
-      scanTimers = [];
+  clearScanTimers();
 
-    }
+  errorPopup.classList.remove("active");
 
+  sexualQuestion.style.display = "block";
+  sexualQuestion.classList.remove("show");
 
-    function startScan() {
+  sexualError.style.display = "none";
+  sexualError.classList.remove("show");
 
-      clearScanTimers();
 
-      errorPopup.classList.remove("active");
+  const scanItems =
+    document.querySelectorAll(
+      "#scene3 .scan-item[data-delay]"
+    );
 
-      sexualQuestion.style.display = "block";
-      sexualError.style.display = "none";
 
-      const scanItems =
-        document.querySelectorAll(
-          "#scene3 .scan-item[data-delay]"
-        );
+  scanItems.forEach(function(item) {
 
-      scanItems.forEach(function(item) {
+    item.classList.remove("show");
 
-        item.classList.remove("show");
+  });
 
-      });
 
+  scanItems.forEach(function(item) {
 
-      /* Show every scan item one by one */
+    const delay =
+      Number(item.getAttribute("data-delay"));
 
-      scanItems.forEach(function(item) {
 
-        const delay =
-          Number(item.dataset.delay);
+    const timer = setTimeout(function() {
 
-        const timer = setTimeout(function() {
+      item.classList.add("show");
 
-          item.classList.add("show");
+    }, delay);
 
-        }, delay);
 
-        scanTimers.push(timer);
+    scanTimers.push(timer);
 
-      });
+  });
 
 
-      /*
-        Sexual tension appears as ????? first.
-        Then changes to ERROR.
-      */
+  /* 12 SECONDS:
+     SEXUAL TENSION ERROR */
 
-      const sexualErrorTimer = setTimeout(function() {
+  const sexualTimer = setTimeout(function() {
 
-        sexualQuestion.style.display = "none";
+    sexualQuestion.style.display = "none";
 
-        sexualError.style.display = "block";
+    sexualError.style.display = "block";
 
-        sexualError.classList.add("show");
+    sexualError.classList.add("show");
 
-      }, 12000);
+  }, 12000);
 
-      scanTimers.push(sexualErrorTimer);
 
+  scanTimers.push(sexualTimer);
 
-      /*
-        IMPORTANT:
 
-        The whole scan finishes at 12 seconds.
+  /* 19 SECONDS:
+     ERROR POPUP */
 
-        Then we wait another 7 seconds.
+  const popupTimer = setTimeout(function() {
 
-        THEN the popup appears.
-      */
+    errorPopup.classList.add("active");
 
-      const popupTimer = setTimeout(function() {
+  }, 19000);
 
-        errorPopup.classList.add("active");
 
-      }, 19000);
+  scanTimers.push(popupTimer);
 
-      scanTimers.push(popupTimer);
+}
 
-    }
 
+/* =========================
+   MORE NERD STUFF
+========================= */
 
-    /* =========================
-       ERROR BUTTON
-    ========================== */
+secretBtn.onclick = function() {
 
-    errorBtn.addEventListener("click", function() {
+  showScene(scene3);
 
-      errorPopup.classList.remove("active");
+  startScan();
 
-      clearScanTimers();
+};
 
-      showScene(scene4);
 
+/* =========================
+   ERROR BUTTON
+========================= */
 
-      /*
-        Explosion stays for 1.8 seconds,
-        then return to beginning.
-      */
+errorBtn.onclick = function() {
 
-      setTimeout(function() {
+  errorPopup.classList.remove("active");
 
-        showScene(scene1);
+  clearScanTimers();
 
-        window.scrollTo({
-          top: 0,
-          behavior: "instant"
-        });
+  showScene(scene4);
 
-      }, 1800);
 
-    });
+  setTimeout(function() {
 
+    showScene(scene1);
 
-  </script>
+  }, 1800);
+
+};
+
+</script>
 
 </body>
 </html>
