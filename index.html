@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Hot Stuff</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #050510;
+  color: white;
+  font-family: "Courier New", monospace;
+  overflow: hidden;
+}
+
+
+/* =========================
+   SPACE
+========================= */
+
+.space {
+  width: 100%;
+  height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      #20204a 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      #25133c 0%,
+      transparent 30%
+    ),
+    #050510;
+
+  position: relative;
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+
+  background-size:
+    80px 80px,
+    130px 130px;
+
+  background-position:
+    0 0,
+    40px 60px;
+
+  opacity: 0.35;
+}
+
+
+/* =========================
+   SCENES
+========================= */
+
+.scene {
+  position: absolute;
+  inset: 0;
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 30px;
+
+  z-index: 2;
+}
+
+.scene.active {
+  display: flex;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  border: 1px solid white;
+
+  background: transparent;
+
+  color: white;
+
+  padding: 14px 24px;
+
+  font-family: "Courier New", monospace;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+button:hover {
+  background: white;
+  color: #050510;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================
+   SCENE 1
+========================= */
+
+.transmission-box {
+
+  width: min(600px, 90vw);
+
+  padding: 50px 30px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  background: rgba(5,5,16,0.75);
+
+  box-shadow:
+    0 0 40px rgba(130,100,255,0.15);
+
+  position: relative;
+
+  z-index: 3;
+}
+
+.signal-icon {
+
+  font-size: 45px;
+
+  margin-bottom: 20px;
+
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+}
+
+.small-text {
+
+  font-size: 11px;
+
+  letter-spacing: 4px;
+
+  opacity: 0.6;
+}
+
+.transmission-box h1 {
+
+  font-size: clamp(24px, 5vw, 42px);
+
+  margin: 25px 0 15px;
+}
+
+.transmission-box p:not(.small-text) {
+
+  line-height: 1.8;
+
+  opacity: 0.7;
+
+  margin-bottom: 35px;
+}
+
+
+/* =========================
+   SCENE 2
+========================= */
+
+.birthday-container {
+
+  width: min(850px, 95vw);
+
+  height: 95vh;
+
+  overflow-y: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 30px 10px;
+
+  scrollbar-width: thin;
+}
+
+
+/* =========================
+   BIRTHDAY CARD
+========================= */
+
+.card {
+
+  width: min(380px, 85vw);
+
+  min-height: 460px;
+
+  padding: 35px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f6eadb,
+      #dfc8b2
+    );
+
+  color: #211a19;
+
+  border-radius: 6px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  transform: rotate(-1deg);
+}
+
+
+/* =========================
+   CARD TITLE
+========================= */
+
+.card-top {
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  font-family: Georgia, serif;
+}
+
+.card-top h1 {
+
+  font-size: 38px;
+
+  line-height: 0.9;
+
+  text-align: center;
+
+  margin: 0;
+}
+
+.card-top span {
+
+  font-size: 22px;
+}
+
+
+/* =========================
+   MEME
+========================= */
+
+.meme-image {
+
+  width: min(280px, 75vw);
+
+  max-height: 230px;
+
+  object-fit: contain;
+
+  margin: 20px 0;
+
+  border-radius: 4px;
+}
+
+
+/* =========================
+   CARD NAME
+========================= */
+
+.card-name {
+
+  font-size: 23px;
+
+  letter-spacing: 4px;
+
+  margin: 0;
+
+  font-weight: bold;
+}
+
+
+/* =========================
+   CARD BOTTOM
+========================= */
+
+.card-bottom {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  font-size: 15px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+  width: min(650px, 90vw);
+
+  margin-top: 45px;
+
+  padding-bottom: 50px;
+}
+
+.message h2 {
+
+  font-size: clamp(25px, 5vw, 36px);
+
+  margin-bottom: 30px;
+}
+
+.message p {
+
+  font-family: Arial, sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  margin: 20px 0;
+
+  color: rgba(255,255,255,0.88);
+}
+
+.message .list {
+
+  font-family: "Courier New", monospace;
+
+  line-height: 2;
+
+  font-size: 15px;
+
+  margin: 25px 0;
+}
+
+.message button {
+
+  margin-top: 15px;
+}
+
+
+/* =========================
+   SCENE 3
+========================= */
+
+.alien-container {
+
+  width: min(650px, 92vw);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  position: relative;
+
+  z-index: 3;
+}
+
+
+/* =========================
+   ALIEN
+========================= */
+
+.alien {
+
+  width: 190px;
+
+  height: 210px;
+
+  position: relative;
+
+  margin-bottom: 20px;
+
+  animation:
+    alienFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   ALIEN HEAD
+========================= */
+
+.alien-face {
+
+  width: 145px;
+
+  height: 125px;
+
+  background: #71d36b;
+
+  border-radius:
+    50% 50% 45% 45%;
+
+  position: absolute;
+
+  left: 22px;
+
+  top: 25px;
+
+  border: 3px solid #3d8f43;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4);
+}
+
+
+/* =========================
+   BLUE EYES
+========================= */
+
+.alien-eyes {
+
+  position: absolute;
+
+  top: 40px;
+
+  left: 25px;
+
+  right: 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.alien-eyes span {
+
+  width: 32px;
+
+  height: 40px;
+
+  background: #62b8ff;
+
+  border-radius: 50%;
+
+  border: 3px solid #28659c;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: #17456c;
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   MOUTH
+========================= */
+
+.alien-mouth {
+
+  position: absolute;
+
+  bottom: 25px;
+
+  left: 62px;
+
+  font-size: 25px;
+
+  color: #267039;
+}
+
+
+/* =========================
+   BLONDE HAIR
+========================= */
+
+.alien-hair {
+
+  position: absolute;
+
+  top: 2px;
+
+  left: 22px;
+
+  z-index: 5;
+
+  color: #f5d76e;
+
+  font-size: 30px;
+
+  letter-spacing: -7px;
+
+  transform: rotate(-8deg);
+}
+
+
+/* =========================
+   PINK SHIRT
+========================= */
+
+.alien-shirt {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 48px;
+
+  width: 95px;
+
+  height: 70px;
+
+  background: #ff7fa8;
+
+  border-radius:
+    45px 45px 15px 15px;
+
+  border: 3px solid #c84f7c;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 30px;
+
+  z-index: 3;
+}
+
+
+/* =========================
+   SOCCER BALL
+========================= */
+
+.soccer-ball {
+
+  position: absolute;
+
+  right: -5px;
+
+  bottom: 15px;
+
+  font-size: 45px;
+
+  z-index: 6;
+
+  animation:
+    soccerKick 1.5s ease-in-out infinite;
+}
+
+@keyframes soccerKick {
+
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+
+  50% {
+    transform: rotate(25deg) translateX(10px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+
+}
+
+
+/* =========================
+   ALIEN FLOAT
+========================= */
+
+@keyframes alienFloat {
+
+  0%,
+  100% {
+
+    transform:
+      translateY(0)
+      rotate(-2deg);
+
+  }
+
+  50% {
+
+    transform:
+      translateY(-12px)
+      rotate(2deg);
+
+  }
+
+}
+
+
+/* =========================
+   SECRET BOX
+========================= */
+
+.secret-box {
+
+  width: 100%;
+
+  padding: 30px;
+
+  border:
+    1px solid #48ff91;
+
+  background:
+    rgba(0,20,10,0.8);
+
+  box-shadow:
+    0 0 30px
+    rgba(72,255,145,0.15);
+
+  font-family:
+    "Courier New", monospace;
+
+  text-align: left;
+}
+
+.secret-title {
+
+  color: #48ff91;
+
+  font-weight: bold;
+
+  font-size: 15px;
+
+  letter-spacing: 2px;
+
+  margin-bottom: 25px;
+
+  text-align: center;
+}
+
+.scan-line {
+
+  width: 100%;
+
+  height: 1px;
+
+  background: #48ff91;
+
+  margin-bottom: 25px;
+
+  opacity: 0.5;
+}
+
+.secret-box p {
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  margin: 10px 0;
+
+  color: #b8ffc9;
+}
+
+.secret-box p span {
+
+  color: #48ff91;
+}
+
+.secret-box .danger {
+
+  color: #ff5c5c;
+}
+
+.restart {
+
+  margin-top: 25px !important;
+
+  text-align: center;
+
+  color: white !important;
+}
+
+
+/* =========================
+   ERROR BUTTON
+========================= */
+
+.error-button {
+
+  display: block;
+
+  margin: 25px auto 0;
+
+  border-color: #ff4d4d;
+
+  color: #ff5c5c;
+}
+
+.error-button:hover {
+
+  background: #ff4d4d;
+
+  color: white;
+}
+
+
+/* =========================
+   SCENE 4
+========================= */
+
+.explosion {
+
+  font-size: 150px;
+
+  opacity: 0;
+
+  transform: scale(0.1);
+
+  position: relative;
+
+  z-index: 5;
+}
+
+.explosion.go {
+
+  animation:
+    explode 1.2s ease forwards;
+}
+
+@keyframes explode {
+
+  0% {
+
+    opacity: 0;
+
+    transform: scale(0.1);
+
+  }
+
+  30% {
+
+    opacity: 1;
+
+    transform: scale(1.3);
+
+  }
+
+  60% {
+
+    opacity: 1;
+
+    transform: scale(2);
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform: scale(5);
+
+  }
+
+}
+
+.boom-text {
+
+  position: absolute;
+
+  font-size: 16px;
+
+  letter-spacing: 5px;
+
+  opacity: 0;
+}
+
+.boom-text.show {
+
+  animation:
+    boomText 1.5s ease forwards;
+}
+
+@keyframes boomText {
+
+  0% {
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .scene {
+    padding: 15px;
+  }
+
+  .card {
+    min-height: 400px;
+  }
+
+  .card-top h1 {
+    font-size: 30px;
+  }
+
+  .meme-image {
+    max-height: 180px;
+  }
+
+  .message p {
+    font-size: 15px;
+  }
+
+  .alien {
+    transform: scale(0.85);
+  }
+
+  .secret-box {
+    padding: 20px;
+  }
+
+  .secret-box p {
+    font-size: 11px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="space">
+
+
+<!-- =================================
+     SCENE 1
+================================= -->
+
+<section id="scene1" class="scene active">
+
+  <div class="stars"></div>
+
+  <div class="transmission-box">
+
+    <div class="signal-icon">
+      ◉
+    </div>
+
+    <p class="small-text">
+      INCOMING TRANSMISSION
+    </p>
+
+    <h1>
+      A transmission has arrived...
+    </h1>
+
+    <p>
+      From somewhere<br>
+      in the universe.
+    </p>
+
+    <button id="openBtn">
+      OPEN TRANSMISSION
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =================================
+     SCENE 2
+================================= -->
+
+<section id="scene2" class="scene">
+
+  <div class="stars"></div>
+
+  <div class="birthday-container">
+
+
+    <!-- BIRTHDAY CARD -->
+
+    <div class="card">
+
+      <div class="card-top">
+
+        <span>✦</span>
+
+        <h1>
+          HAPPY<br>
+          BIRTHDAY
+        </h1>
+
+        <span>✦</span>
+
+      </div>
+
+
+      <!-- YOUR MEME -->
+
+      <img
+        class="meme-image"
+        src="https://www.grouptogether.com/assets/images/ronburgandymeme.avif?v=1727814538"
+        alt="Birthday meme"
+      >
+
+
+      <p class="card-name">
+        HOT STUFF
+      </p>
+
+
+      <div class="card-bottom">
+
+        <span>♡</span>
+        <span>♡</span>
+        <span>♡</span>
+
+      </div>
+
+    </div>
+
+
+    <!-- BIRTHDAY MESSAGE -->
+
+    <div class="message">
+
+      <h2>
+        Happy birthday hot stuff
+      </h2>
+
+      <p>
+        Congratulations on completing another solar cycle.
+      </p>
+
+      <p>
+        It's crazy how there are 8 billion people in this planet,
+        and our paths crossed.
+      </p>
+
+      <p>
+        I'm glad it did.
+      </p>
+
+      <p>
+        I hope this year brings you plenty of good things..
+      </p>
+
+      <p class="list">
+        good music<br>
+        good people<br>
+        good food<br>
+        and good love :)
+      </p>
+
+      <p>
+        You deserve all the love and happiness!
+      </p>
+
+      <p>
+        Hope this made you smile :)
+      </p>
+
+      <p>
+        There might be one more thing...
+      </p>
+
+      <button id="secretBtn">
+        CLICK HERE
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =================================
+     SCENE 3
+================================= -->
+
+<section id="scene3" class="scene">
+
+  <div class="stars"></div>
+
+  <div class="alien-container">
+
+
+    <!-- ALIEN -->
+
+    <div class="alien">
+
+      <!-- BLONDE HAIR -->
+
+      <div class="alien-hair">
+        ♡ ♡ ♡
+      </div>
+
+
+      <!-- FACE -->
+
+      <div class="alien-face">
+
+        <div class="alien-eyes">
+
+          <span>●</span>
+          <span>●</span>
+
+        </div>
+
+        <div class="alien-mouth">
+          ◡
+        </div>
+
+      </div>
+
+
+      <!-- PINK SHIRT -->
+
+      <div class="alien-shirt">
+        ⚽
+      </div>
+
+
+      <!-- SOCCER BALL -->
+
+      <div class="soccer-ball">
+        ⚽
+      </div>
+
+    </div>
+
+
+    <!-- SECRET TRANSMISSION -->
+
+    <div class="secret-box">
+
+      <div class="secret-title">
+        SECRET TRANSMISSION UNLOCKED
+      </div>
+
+      <div class="scan-line"></div>
+
+      <p>
+        Scan complete
+      </p>
+
+      <p>
+        Birthday detected
+      </p>
+
+      <p>
+        Handsome:
+        <span>YES</span>
+      </p>
+
+      <p>
+        Age:
+        <span>CLASSIFIED</span>
+      </p>
+
+      <p>
+        Sexual tension:
+        <span class="danger">
+          ERROR - SYSTEM OVERHEATING
+        </span>
+      </p>
+
+      <p class="restart">
+        Please restart the alien immediately.
+      </p>
+
+      <button
+        id="errorBtn"
+        class="error-button"
+      >
+        ⚠ ERROR ⚠
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =================================
+     SCENE 4
+================================= -->
+
+<section id="scene4" class="scene">
+
+  <div class="stars"></div>
+
+  <div id="explosion" class="explosion">
+    💥
+  </div>
+
+  <p class="boom-text">
+    SYSTEM FAILURE
+  </p>
+
+</section>
+
+
+</div>
+
+
+<!-- =================================
+     JAVASCRIPT
+================================= -->
+
+<script>
+
+
+/* =========================
+   GET SCENES
+========================= */
+
+const scene1 =
+  document.getElementById("scene1");
+
+const scene2 =
+  document.getElementById("scene2");
+
+const scene3 =
+  document.getElementById("scene3");
+
+const scene4 =
+  document.getElementById("scene4");
+
+
+/* =========================
+   GET BUTTONS
+========================= */
+
+const openBtn =
+  document.getElementById("openBtn");
+
+const secretBtn =
+  document.getElementById("secretBtn");
+
+const errorBtn =
+  document.getElementById("errorBtn");
+
+
+/* =========================
+   CHANGE SCENE
+========================= */
+
+function showScene(sceneToShow) {
+
+  scene1.classList.remove("active");
+
+  scene2.classList.remove("active");
+
+  scene3.classList.remove("active");
+
+  scene4.classList.remove("active");
+
+  sceneToShow.classList.add("active");
+
+}
+
+
+/* =========================
+   OPEN TRANSMISSION
+========================= */
+
+openBtn.addEventListener(
+  "click",
+  function() {
+
+    showScene(scene2);
+
+  }
+);
+
+
+/* =========================
+   SECRET TRANSMISSION
+========================= */
+
+secretBtn.addEventListener(
+  "click",
+  function() {
+
+    showScene(scene3);
+
+  }
+);
+
+
+/* =========================
+   ERROR + EXPLOSION
+========================= */
+
+errorBtn.addEventListener(
+  "click",
+  function() {
+
+    showScene(scene4);
+
+    const explosion =
+      document.getElementById("explosion");
+
+    const boomText =
+      document.querySelector(".boom-text");
+
+
+    explosion.classList.remove("go");
+
+    boomText.classList.remove("show");
+
+
+    /* Restart animation */
+
+    void explosion.offsetWidth;
+
+
+    explosion.classList.add("go");
+
+    boomText.classList.add("show");
+
+
+    /* Return to beginning */
+
+    setTimeout(
+      function() {
+
+        explosion.classList.remove("go");
+
+        boomText.classList.remove("show");
+
+        showScene(scene1);
+
+      },
+      1800
+    );
+
+  }
+);
+
+</script>
+
+</body>
+</html>
